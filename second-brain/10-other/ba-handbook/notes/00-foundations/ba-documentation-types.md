@@ -24,15 +24,34 @@ Tên tài liệu và viết tắt tra ở [[glossary|Glossary]] thay vì định
 
 Mọi tài liệu yêu cầu thực chất trả lời một trong ba câu, đi từ trừu tượng xuống chi tiết:
 
-```text
-  BUSINESS REQUIREMENT      ─►  WHY   — tại sao cần thay đổi này?
-        (mục tiêu, phạm vi, tính khả thi)
-            │
-  STAKEHOLDER / USER REQ.   ─►  WHAT  — các bên cần gì?
-        (nhu cầu của tất cả stakeholder, không chỉ end user)
-            │
-  SOLUTION REQUIREMENT      ─►  HOW   — hệ thống phải làm gì để đáp ứng?
-        (chức năng & ràng buộc chất lượng, đủ để build và test)
+```plantuml BA Documentation Tiers
+@startuml
+skinparam defaultFontSize 15
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
+top to bottom direction
+
+rectangle "WHY — Business Requirement\ntại sao cần thay đổi này?\n(mục tiêu, phạm vi, tính khả thi)" as Business #LightYellow {
+  rectangle "  MRD · BRD · Product Vision\n  Business Case · Scope Document  " as BizArtifacts
+}
+
+rectangle "WHAT — Stakeholder / User Requirement\ncác bên cần gì?\n(nhu cầu của tất cả stakeholder)" as Stakeholder #LightBlue {
+  rectangle "  URD · FRD · User Story\n  Product Backlog · PRD  " as StakeArtifacts
+}
+
+rectangle "HOW — Solution Requirement\nhệ thống phải làm gì để đáp ứng?\n(chức năng & ràng buộc chất lượng)" as Solution #LightGreen {
+  rectangle "  SRS · NFRS · Use Case + AC\n  Wireframe · Mockup / Prototype  " as SolArtifacts
+}
+
+Business --> Stakeholder : phân rã mục tiêu\nthành nhu cầu cụ thể
+Stakeholder --> Solution : chuyển nhu cầu\nthành đặc tả build được
+
+note right of Solution
+  BA làm chủ nhóm này.
+  Luôn truy được một chức năng
+  Solution về "why" của nó.
+end note
+@enduml
 ```
 
 Cách phân tầng này khớp với phân loại requirement của IIBA BABOK (business → stakeholder → solution). Quy tắc rút ra: **luôn truy được một dòng tài liệu Solution về "why" của nó**. Nếu không trả lời được tại sao một chức năng tồn tại, khả năng cao yêu cầu chưa được làm rõ ở tầng trên.

@@ -25,19 +25,41 @@ Thuật ngữ nền (BA, SDLC, stakeholder…) tra ở [[glossary|Glossary]] tha
 
 Hiểu sai phổ biến nhất là coi BA như người "chuyển lời" từ khách hàng sang dev. Thực tế BA đứng giữa hai phía có ngôn ngữ và lợi ích khác nhau, và **việc chính là cân đối**, không phải truyền đạt nguyên văn.
 
-```text
-        EXTERNAL                              INTERNAL
-   (ngoài đội làm sản phẩm)             (trong đội làm sản phẩm)
-  Sponsor · Customer · End user        PM · Developer · Tester ·
-  Vendor · DSME · ISME                 PQA · Regulator · Vận hành
-        │                                        │
-        │  nhu cầu, kỳ vọng,            ràng buộc kỹ thuật,
-        │  vấn đề nghiệp vụ             nguồn lực, quy trình, rủi ro
-        ▼                                        ▼
-        └──────────────►   BA   ◄────────────────┘
-                           │
-              cân đối dưới 3 ràng buộc:
-              kỹ thuật · nguồn lực · pháp lý/quy định
+```plantuml BA Stakeholder Bridge
+@startuml
+skinparam defaultFontSize 15
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
+left to right direction
+
+rectangle "EXTERNAL\n(ngoài đội làm sản phẩm)" as External {
+  rectangle "Sponsor"
+  rectangle "Customer"
+  rectangle "End user"
+  rectangle "Vendor"
+  rectangle "DSME · ISME"
+}
+
+rectangle "INTERNAL\n(trong đội làm sản phẩm)" as Internal {
+  rectangle "PM"
+  rectangle "Developer"
+  rectangle "Tester"
+  rectangle "PQA"
+  rectangle "Regulator"
+  rectangle "Vận hành"
+}
+
+rectangle "BA" as BA #LightBlue
+
+External -down-> BA : nhu cầu, kỳ vọng,\nvấn đề nghiệp vụ
+Internal -down-> BA : ràng buộc kỹ thuật,\nnguồn lực, quy trình, rủi ro
+
+note bottom of BA
+  Cân đối dưới 3 ràng buộc:
+  kỹ thuật · nguồn lực · pháp lý/quy định.
+  Không phải yêu cầu nào cũng được đáp ứng.
+end note
+@enduml
 ```
 
 Hệ quả thực dụng: **không phải yêu cầu nào của khách cũng được đáp ứng**. Một yêu cầu hợp lý về nghiệp vụ vẫn có thể bị từ chối hoặc hoãn nếu vượt khả năng kỹ thuật, vượt nguồn lực, hoặc vi phạm quy định. Vai trò BA là làm cho cuộc đánh đổi đó *rõ ràng và có cơ sở*, chứ không phải gật đầu cho qua rồi đẩy áp lực sang dev.
@@ -87,6 +109,38 @@ Lộ trình không cố định, phụ thuộc mục tiêu cá nhân và môi tr
 | Junior | — | viết tài liệu chi tiết, xử lý exception theo khung dựng sẵn; tự thiết kế chưa đầy đủ |
 | Middle | 1.5 – 2.5 năm | estimate, tự chia nhỏ tính năng, train cấp dưới; phối hợp external có thể chưa cao |
 | Senior | 1.5 – 3.5 năm | chủ động, estimate tốt, quản nhóm nhỏ (3–7), học domain mới nhanh |
+
+```plantuml BA Career Path
+@startuml
+skinparam defaultFontSize 15
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
+top to bottom direction
+
+rectangle "Fresher / Newbie\n6T – 1Y\ndùng template có sẵn" as Fresher #LightGray
+rectangle "Junior\nviết tài liệu chi tiết,\nxử lý exception theo khung" as Junior #LightGray
+rectangle "Middle\n1.5 – 2.5Y\nestimate, chia tính năng,\ntrain cấp dưới" as Middle #LightGray
+rectangle "Senior\n1.5 – 3.5Y\nchủ động, quản nhóm nhỏ,\nhọc domain mới nhanh" as Senior #LightBlue
+
+rectangle "PM / PO\nquản lý, roadmap,\nproduct vision" as PM #LightGreen
+rectangle "BA Lead / Manager\nchuyên môn +\nquản lý đội BA" as Lead #LightGreen
+rectangle "Management\nConsultant\nchiều sâu domain\n(tài chính, kế toán…)" as Consultant #LightGreen
+
+Fresher --> Junior
+Junior --> Middle
+Middle --> Senior
+Senior --> PM
+Senior --> Lead
+Senior --> Consultant
+
+note right of Senior
+  Ba yếu tố quyết định lên cấp:
+  (1) khả năng chủ động
+  (2) khả năng đào tạo người khác
+  (3) tốc độ thích nghi domain mới
+end note
+@enduml
+```
 
 Ba yếu tố quyết định lên cấp: **(1)** khả năng chủ động (estimate, thiết kế, xử lý ngoại lệ), **(2)** khả năng đào tạo người khác, **(3)** tốc độ thích nghi khi đổi domain.
 

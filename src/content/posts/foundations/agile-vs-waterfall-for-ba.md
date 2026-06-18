@@ -1,6 +1,6 @@
 ---
 title: "Agile vs Waterfall cho BA"
-pubDatetime: 2026-06-18T02:25:14.326Z
+pubDatetime: 2026-06-18T08:11:05.022Z
 description: "Note này giúp BA điều chỉnh cách làm việc và bộ tài liệu theo mô hình dự án, thay vì áp một thói quen cố định. Trọng tâm không phải tranh luận mô hình nào tốt…"
 tags: ["ba", "foundations"]
 draft: false
@@ -29,14 +29,53 @@ Thuật ngữ nền (SDLC, Waterfall, Agile, backlog…) tra ở Glossary.
 
 Khác biệt gốc rễ nằm ở **khi nào yêu cầu được coi là "chốt"**.
 
-```text
-WATERFALL — chốt yêu cầu trước, đi tuyến tính
-  Requirement ─► Design ─► Build ─► Test ─► Release
-  (tài liệu đầy đủ ở đầu; thay đổi sau = tốn kém, qua change request)
+```plantuml Waterfall
+@startuml
+skinparam defaultFontSize 15
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
+left to right direction
 
-AGILE — yêu cầu tiến hoá, giao tăng dần theo vòng lặp
-  ┌─► Plan ─► Build ─► Test ─► Review ─┐   (mỗi sprint giao một lát giá trị;
-  └────────────  feedback  ────────────┘    yêu cầu được làm rõ dần)
+rectangle "Requirement\n(tài liệu đầy đủ)" as Req #LightGray
+rectangle "Design" as Design #LightGray
+rectangle "Build" as Build #LightGray
+rectangle "Test" as Test #LightGray
+rectangle "Release" as Release #LightGray
+
+Req --> Design
+Design --> Build
+Build --> Test
+Test --> Release
+
+note bottom of Req
+  Chốt yêu cầu trước, đi tuyến tính.
+  Thay đổi sau = tốn kém,
+  qua change request chính thức.
+end note
+@enduml
+```
+
+```plantuml Agile — vòng lặp tăng dần
+@startuml
+skinparam defaultFontSize 15
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
+
+rectangle "Plan\n(lát kế tiếp)" as Plan #LightGray
+rectangle "Build" as Build #LightGray
+rectangle "Test" as Test #LightGray
+rectangle "Review\n(demo + feedback)" as Review #LightGray
+
+Plan --> Build
+Build --> Test
+Test --> Review
+Review --> Plan : yêu cầu làm rõ dần
+
+note right of Review
+  Mỗi sprint giao một lát giá trị.
+  Yêu cầu tiến hoá, không chốt cứng.
+end note
+@enduml
 ```
 
 Từ mental model này suy ra mọi khác biệt còn lại: nếu yêu cầu chốt trước, BA dồn công sức viết tài liệu chi tiết ở đầu; nếu yêu cầu tiến hoá, BA viết vừa đủ cho lát kế tiếp và làm rõ liên tục.

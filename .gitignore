@@ -35,3 +35,5 @@ compose.override.yaml
 # PlantUML CLI binary (~29MB) — tải lại bằng:
 # wget -O plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
 plantuml.jar
+
+.serena
