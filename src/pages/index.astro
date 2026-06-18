@@ -1,0 +1,195 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Socials from "@/components/Socials.astro";
+import Card from "@/components/Card.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import LinkButton from "@/components/LinkButton.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
+
+const { socials, posts: postsConfig } = config;
+
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+const posts = await getCollection("posts");
+const recentPosts = getSortedPosts(posts);
+
+const projects = (
+  await getCollection("projects", ({ data }) => !data.draft)
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const homePath = getRelativeLocaleUrl(locale, "");
+
+const homeTitle = "Phạm Thủy — Business Analyst";
+
+// JSON-LD: giúp Google hiểu trang chủ là hồ sơ một người + website.
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      name: "Phạm Thị Thu Thủy",
+      alternateName: "Phạm Thủy",
+      url: config.site.url,
+      jobTitle: "Business Analyst",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hà Nội",
+        addressCountry: "VN",
+      },
+      knowsAbout: [
+        "Business Analysis",
+        "Requirement Elicitation",
+        "User Story",
+        "Use Case",
+        "UML",
+        "BPMN",
+        "Agile/Scrum",
+        "SQL",
+      ],
+      sameAs: socials.map(s => s.url).filter(url => /^https?:/.test(url)),
+    },
+    {
+      "@type": "WebSite",
+      name: config.site.title,
+      url: config.site.url,
+      inLanguage: "vi-VN",
+    },
+  ],
+};
+---
+
+<Layout title={homeTitle}>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  </Fragment>
+  <Header />
+  <main
+    id="main-content"
+    data-layout="index"
+    data-home-path={homePath}
+    class="app-layout"
+  >
+    <!-- Intro / portfolio header -->
+    <section id="hero" class="border-border border-b pt-8 pb-8">
+      <div class="flex items-center gap-x-3">
+        <h1 class="text-4xl font-bold sm:text-5xl">Phạm Thủy</h1>
+        <a
+          target="_blank"
+          href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
+          class="inline-block"
+          aria-label="RSS Feed"
+          title="RSS Feed"
+        >
+          <IconRss
+            width={20}
+            height={20}
+            class="stroke-accent scale-110 stroke-3 rtl:-rotate-90"
+          />
+          <span class="sr-only">RSS Feed</span>
+        </a>
+      </div>
+      <p class="text-muted-foreground mt-1 text-lg font-medium">
+        Business Analyst · Hà Nội, Việt Nam
+      </p>
+
+      <p class="mt-4">
+        Sinh viên CNTT năm cuối, định hướng Business Analyst — tập trung vào
+        phân tích nghiệp vụ, đặc tả yêu cầu và mô hình hoá quy trình. Có kinh
+        nghiệm làm BA trong nhóm xây dựng hệ thống bán hàng &amp; quản lý kho
+        end-to-end theo Agile/Scrum: phân tích nghiệp vụ, viết user story/use
+        case và bàn giao tài liệu cho đội phát triển. Tư duy hệ thống, cẩn thận
+        với chi tiết — luôn hỏi tại sao một yêu cầu tồn tại và tradeoff nghiệp vụ
+        là gì.
+      </p>
+
+      <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <LinkButton
+          href="/cv_phamthuy.pdf"
+          class="bg-accent text-accent-foreground rounded-md px-4 py-2 text-sm font-medium hover:opacity-90"
+        >
+          Tải CV (PDF)
+        </LinkButton>
+        {
+          socials.length > 0 && (
+            <div class="flex items-center">
+              <div class="me-2 whitespace-nowrap">{t.home.socialLinks}:</div>
+              <Socials />
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <!-- Projects -->
+    {
+      projects.length > 0 && (
+        <section id="projects" class="border-border border-b pt-10 pb-8">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl font-semibold tracking-wide">
+              {t.nav.projects}
+            </h2>
+            <LinkButton
+              href={getRelativeLocaleUrl(locale, "projects")}
+              class="text-accent text-sm underline decoration-dashed underline-offset-4"
+            >
+              Tất cả dự án
+              <IconArrowRight class="inline-block size-4 rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+          <ul class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {projects.map(project => (
+              <ProjectCard {...project} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <!-- Recent posts -->
+    {
+      recentPosts.length > 0 && (
+        <section id="recent-posts" class="pt-10 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">
+            {t.home.recentPosts}
+          </h2>
+          <ul>
+            {recentPosts.slice(0, postsConfig.perIndex).map(data => (
+              <Card variant="h3" {...data} />
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <div class="my-8 text-center">
+      <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
+        {t.home.allPosts}
+        <IconArrowRight class="inline-block rtl:-rotate-180" />
+      </LinkButton>
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const indexLayout = (document.querySelector("#main-content") as HTMLElement)
+      ?.dataset;
+    const baseRoot = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+    if (indexLayout?.layout) {
+      sessionStorage.setItem("backUrl", indexLayout.homePath ?? baseRoot);
+    }
+  });
+</script>

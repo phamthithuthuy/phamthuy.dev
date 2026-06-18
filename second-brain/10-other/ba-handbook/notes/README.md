@@ -1,0 +1,133 @@
+# BA Handbook Notes
+
+> Index cho các markdown notes thực hành trong BA handbook. Note được tổ chức theo 9 nhóm bám vòng đời phân tích nghiệp vụ. Mở file này để chọn nhóm cần học, rồi đi vào README của từng nhóm.
+>
+> Trước khi thêm hoặc sửa note, đọc [[note-guidelines|Note guidelines]].
+
+---
+
+## Nhóm chủ đề
+
+| Nhóm | Dùng khi | Trạng thái | Index |
+|---|---|---|---|
+| 00 — Foundations | cần hiểu vai trò BA, SDLC, hệ tài liệu trước khi vào việc | scaffold | [[00-foundations/README\|00 — Foundations]] |
+| 01 — Discovery & Requirements | khai thác và làm rõ yêu cầu trước khi thiết kế | có note | [[01-discovery-and-requirements/README\|01 — Discovery & Requirements]] |
+| 02 — System Analysis & Design | bóc tách, ưu tiên, mô hình hóa hệ thống | có note | [[02-system-analysis-and-design/README\|02 — System Analysis & Design]] |
+| 03 — Specification | viết đặc tả và truy vết yêu cầu (SRS, RTM) | scaffold | [[03-specification/README\|03 — Specification]] |
+| 04 — Agile Delivery | biến requirement thành backlog và giao giá trị | có note | [[04-agile-delivery/README\|04 — Agile Delivery]] |
+| 05 — Domain Knowledge | nắm nghiệp vụ theo domain cụ thể | scaffold | [[05-domain-knowledge/README\|05 — Domain Knowledge]] |
+| 06 — Soft Skills | giao tiếp, facilitation, đàm phán scope | scaffold | [[06-soft-skills/README\|06 — Soft Skills]] |
+| 07 — Tools | dùng Jira, Confluence, Figma, SQL cho BA | scaffold | [[07-tools/README\|07 — Tools]] |
+| 08 — Templates | template copy-ready khi viết tài liệu | có note | [[08-templates/README\|08 — Templates]] |
+
+"scaffold" = đã có README + `_conventions.md`, nội dung nằm trong Planned scope, chưa có note.
+
+---
+
+## Mở từ đâu?
+
+### Nếu đang học Agile BA từ đầu
+
+1. [[agile-concepts-for-ba|Agile cho Business Analyst]]
+2. [[requirement-elicitation|Requirement Elicitation cho BA]]
+3. [[case-study-to-agile-ba-delivery|Từ case study ra backlog Agile cho BA]]
+4. [[user-story-and-acceptance-criteria|User Story và Acceptance Criteria cho BA]]
+5. [[backlog-refinement|Backlog Refinement cho BA]]
+6. [[change-request-and-impact-analysis|Change Request và Impact Analysis cho BA]]
+7. [[ba-artifact-templates|BA Artifact Templates]]
+
+### Nếu đang phân tích và thiết kế hệ thống
+
+1. [[functional-decomposition-diagram|Functional Decomposition Diagram (FDD)]]
+2. [[moscow-prioritization|MoSCoW cho BA]]
+3. [[system-analysis-common-principles|4 nguyên tắc chung khi phân tích hệ thống]]
+4. [[crud-operations|Nguyên tắc CRUD cho BA]]
+5. [[use-case-diagram|Use Case cho BA]]
+6. [[fdd-vs-use-case|FDD vs Use Case: chọn cái nào]]
+
+Dùng FDD để bóc tách hệ thống, MoSCoW để chốt tính năng chính, 4 nguyên tắc chung như checklist chống sót module nền, CRUD để soát đủ thao tác dữ liệu, Use Case để mô tả chi tiết từng tính năng, và note so sánh để chọn đúng công cụ.
+
+### Nếu đang làm bài case study hoặc phân tích requirement
+
+1. [[requirement-elicitation|Requirement Elicitation cho BA]]
+2. [[case-study-to-agile-ba-delivery|Từ case study ra backlog Agile cho BA]]
+3. [[user-story-and-acceptance-criteria|User Story và Acceptance Criteria cho BA]]
+4. [[backlog-refinement|Backlog Refinement cho BA]]
+5. [[ba-artifact-templates|BA Artifact Templates]]
+
+### Nếu đang viết hoặc review User Story
+
+1. [[user-story-and-acceptance-criteria|User Story và Acceptance Criteria cho BA]]
+2. [[backlog-refinement|Backlog Refinement cho BA]]
+3. [[ba-artifact-templates|BA Artifact Templates]]
+
+Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elicitation cho BA]] để làm rõ pain point, rule, assumption và dependency.
+
+### Nếu stakeholder đổi requirement hoặc scope
+
+1. [[change-request-and-impact-analysis|Change Request và Impact Analysis cho BA]]
+2. [[backlog-refinement|Backlog Refinement cho BA]]
+3. [[ba-artifact-templates|BA Artifact Templates]]
+
+---
+
+## Tất cả notes hiện có
+
+### 01 — Discovery & Requirements
+
+| Note | Dùng khi |
+|---|---|
+| [[requirement-elicitation|Requirement Elicitation cho BA]] | cần khai thác requirement từ stakeholder, case study, tài liệu cũ, hoặc observation thực tế |
+
+### 02 — System Analysis & Design
+
+| Note | Dùng khi |
+|---|---|
+| [[functional-decomposition-diagram|Functional Decomposition Diagram (FDD)]] | cần bóc tách hệ thống thành cây tính năng để viết spec, dựng overview, kiểm soát scope |
+| [[moscow-prioritization|MoSCoW cho BA]] | cần ưu tiên tính năng, chốt nhánh chính cho FDD, hoặc giải thích vì sao một tính năng bị hoãn |
+| [[system-analysis-common-principles|4 nguyên tắc chung khi phân tích hệ thống]] | cần checklist chống sót module nền: Data, Notification, Report/Dashboard, Setting/Setup |
+| [[crud-operations|Nguyên tắc CRUD cho BA]] | cần bóc tính năng "Quản lý" hoặc quy trình phức tạp ra Create/Read/Update/Delete mà không sót case |
+| [[use-case-diagram|Use Case cho BA]] | cần mô tả chi tiết kịch bản tính năng: actor, trigger, pre/post-condition, normal case, exception |
+| [[fdd-vs-use-case|FDD vs Use Case: chọn cái nào]] | cần quyết định dùng FDD, Use Case, hay cả hai cho dự án |
+
+### 04 — Agile Delivery
+
+| Note | Dùng khi |
+|---|---|
+| [[agile-concepts-for-ba|Agile cho Business Analyst]] | cần hiểu khái niệm Agile/Scrum/Kanban, work item types, refinement, DoR/DoD, estimation, prioritization |
+| [[case-study-to-agile-ba-delivery|Từ case study ra backlog Agile cho BA]] | cần đi từ case study hoặc scenario thô ra pain point, requirement, backlog item, sprint slice, priority, story point |
+| [[user-story-and-acceptance-criteria|User Story và Acceptance Criteria cho BA]] | cần viết story, kiểm tra AC, split story, hoặc review story trước refinement |
+| [[backlog-refinement|Backlog Refinement cho BA]] | cần chuẩn bị refinement, xác định ready/not ready, ghi decision, dependency, open questions |
+| [[change-request-and-impact-analysis|Change Request và Impact Analysis cho BA]] | cần xử lý đổi requirement/scope, phân tích impact, đưa option và ghi decision |
+
+### 08 — Templates
+
+| Note | Dùng khi |
+|---|---|
+| [[ba-artifact-templates|BA Artifact Templates]] | cần copy nhanh template elicitation, requirement brief, story/AC, refinement note, impact analysis, decision log |
+
+---
+
+## Khoảng trống nên bổ sung sau
+
+Roadmap chi tiết nằm trong README của từng nhóm (mục Planned scope). Các note dự kiến:
+
+- **00 — Foundations:** BA role & SDLC, Agile vs Waterfall, hệ tài liệu BA
+- **01 — Discovery:** Stakeholder Interview, Non-functional Requirement for BA
+- **02 — System Analysis & Design:** Activity Diagram, Sequence Diagram, State Machine, Wireframe
+- **03 — Specification:** SRS/FRS, BRD, Requirements Traceability Matrix (RTM)
+- **04 — Agile Delivery:** Prioritization and Estimation, Process Modeling and Flow Diagram
+- **05 — Domain Knowledge:** theo domain dự án thực tế
+- **06 — Soft Skills:** facilitation, đàm phán scope, viết rõ ràng
+- **07 — Tools:** Jira/Confluence, Figma, SQL cho BA
+- **08 — Templates:** SRS and Functional Specification
+
+Đây là roadmap, không phải missing content. Khi viết, bám [[note-guidelines|Note guidelines]] ngay từ batch đầu.
+
+## Related
+
+- [[../README|BA Handbook]]
+- [[note-guidelines|Note guidelines]]
+- [[../glossary|Glossary]]
+- [[../mapping/README|Study Map & Source Mapping]]
+</content>

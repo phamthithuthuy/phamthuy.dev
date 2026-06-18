@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"projects">;
+
+const { data } = Astro.props;
+const { title, description, tech, url, github, date } = data;
+
+const formattedDate = new Intl.DateTimeFormat("en-GB", {
+  year: "numeric",
+  month: "short",
+}).format(date);
+
+const TitleTag = url ? "a" : "span";
+---
+
+<li
+  class="border-border bg-muted/20 flex flex-col gap-3 rounded-lg border p-5"
+>
+  <div class="flex items-baseline justify-between gap-2">
+    <TitleTag
+      href={url}
+      {...url ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+      class:list={[
+        "text-accent text-lg font-medium",
+        url && [
+          "decoration-dashed underline-offset-4 hover:underline",
+          "focus-visible:no-underline focus-visible:underline-offset-0",
+        ],
+      ]}
+    >
+      {title}
+    </TitleTag>
+    <time
+      datetime={date.toISOString()}
+      class="text-muted-foreground shrink-0 text-sm"
+    >
+      {formattedDate}
+    </time>
+  </div>
+
+  <p class="text-foreground/90">{description}</p>
+
+  {
+    tech.length > 0 && (
+      <ul class="flex flex-wrap gap-2" aria-label="Tech stack">
+        {tech.map(t => (
+          <li class="bg-muted text-muted-foreground rounded px-2 py-0.5 text-xs">
+            {t}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+
+  {
+    (url || github) && (
+      <div class="mt-1 flex gap-4 text-sm">
+        {url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent decoration-dashed underline-offset-4 hover:underline"
+          >
+            Live ↗
+          </a>
+        )}
+        {github && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-accent decoration-dashed underline-offset-4 hover:underline"
+          >
+            GitHub ↗
+          </a>
+        )}
+      </div>
+    )
+  }
+</li>

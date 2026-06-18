@@ -1,0 +1,14 @@
+name = "phamthuy-dev"
+compatibility_date = "2026-06-01"
+
+# Static-assets-only Worker (no server script): serves Astro's static `dist/`.
+[assets]
+directory = "./dist"
+# Serve Astro's generated 404.html for unknown paths.
+not_found_handling = "404-page"
+
+# Custom domain. Requires phamthuy.dev to be a zone in this Cloudflare account.
+# Comment this out for the first `*.workers.dev` deploy if the zone isn't set up yet.
+[[routes]]
+pattern = "phamthuy.dev"
+custom_domain = true
