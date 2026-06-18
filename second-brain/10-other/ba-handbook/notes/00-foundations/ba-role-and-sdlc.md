@@ -1,0 +1,145 @@
+# Vai trò BA và vị trí trong dự án
+
+> Note này giúp bạn trả lời ba câu nền tảng khi bước vào nghề hoặc vào một dự án mới: BA thật sự làm gì, đứng ở đâu giữa các bên, và tham gia vào pha nào của vòng đời phát triển phần mềm với đầu ra là tài liệu gì. Mục tiêu không phải học thuộc định nghĩa, mà là biết mình kết nối ai, chịu trách nhiệm artifact nào, và khi nào được phép nói "không" với một yêu cầu.
+
+## Note này dùng để làm gì
+
+Mở note này khi:
+
+- bạn mới vào nghề BA và còn mơ hồ "một ngày của BA làm gì"
+- bạn vừa join một dự án và cần dựng nhanh bản đồ stakeholder để biết hỏi ai cái gì
+- bạn cần biết ở pha hiện tại của dự án thì BA phải tạo ra tài liệu nào
+- bạn đang phân vân lộ trình phát triển tiếp theo của mình
+
+Đọc kèm:
+
+- [[ba-documentation-types|Hệ tài liệu BA phải biết]] — artifact BA tạo ra ở từng pha
+- [[agile-vs-waterfall-for-ba|Agile vs Waterfall cho BA]] — pha và artifact đổi theo mô hình dự án
+- [[requirement-elicitation|Requirement Elicitation cho BA]] — kỹ thuật làm việc ở pha discovery
+
+Thuật ngữ nền (BA, SDLC, stakeholder…) tra ở [[glossary|Glossary]] thay vì định nghĩa lại ở đây.
+
+---
+
+## 1. Mental model: BA là điểm cân đối, không phải cái loa
+
+Hiểu sai phổ biến nhất là coi BA như người "chuyển lời" từ khách hàng sang dev. Thực tế BA đứng giữa hai phía có ngôn ngữ và lợi ích khác nhau, và **việc chính là cân đối**, không phải truyền đạt nguyên văn.
+
+```text
+        EXTERNAL                              INTERNAL
+   (ngoài đội làm sản phẩm)             (trong đội làm sản phẩm)
+  Sponsor · Customer · End user        PM · Developer · Tester ·
+  Vendor · DSME · ISME                 PQA · Regulator · Vận hành
+        │                                        │
+        │  nhu cầu, kỳ vọng,            ràng buộc kỹ thuật,
+        │  vấn đề nghiệp vụ             nguồn lực, quy trình, rủi ro
+        ▼                                        ▼
+        └──────────────►   BA   ◄────────────────┘
+                           │
+              cân đối dưới 3 ràng buộc:
+              kỹ thuật · nguồn lực · pháp lý/quy định
+```
+
+Hệ quả thực dụng: **không phải yêu cầu nào của khách cũng được đáp ứng**. Một yêu cầu hợp lý về nghiệp vụ vẫn có thể bị từ chối hoặc hoãn nếu vượt khả năng kỹ thuật, vượt nguồn lực, hoặc vi phạm quy định. Vai trò BA là làm cho cuộc đánh đổi đó *rõ ràng và có cơ sở*, chứ không phải gật đầu cho qua rồi đẩy áp lực sang dev.
+
+---
+
+## 2. Bản đồ stakeholder: vì sao phải chia External và Internal
+
+Stakeholder là bất kỳ ai có lợi ích hoặc ảnh hưởng tới dự án. BA chia họ làm hai nhóm **vì cách giao tiếp và thứ cần lấy từ mỗi nhóm rất khác nhau** — không phải để phân biệt sang hèn.
+
+| Nhóm | Ai | BA cần gì từ họ | Lưu ý giao tiếp |
+|---|---|---|---|
+| **External** | Sponsor (nhà đầu tư), Customer, End user, Vendor, DSME (chuyên gia nghiệp vụ), ISME (chuyên gia triển khai) | vấn đề thật, mục tiêu, kỳ vọng, ràng buộc nghiệp vụ/pháp lý | nói ngôn ngữ nghiệp vụ, tránh thuật ngữ kỹ thuật; xác nhận lại nhiều lần |
+| **Internal** | PM, Developer, Tester, PQA (quản lý quy trình), Regulator (pháp chế), bộ phận vận hành | tính khả thi, estimate, rủi ro kỹ thuật, ràng buộc quy trình | nói cụ thể, có cấu trúc; gắn yêu cầu với rule và acceptance |
+
+Dấu hiệu BA non tay: chỉ làm việc với một nhóm. Người mới hay quên **tester, PQA và vận hành** — đây chính là nhóm phát hiện sớm yêu cầu thiếu exception hoặc thiếu khả năng vận hành.
+
+> Nhiều thuật ngữ viết tắt ở đây (DSME, ISME, PQA, Regulator…) xuất hiện trên slide khóa học nhưng chưa được giảng chi tiết. Khi cần định nghĩa chốt, bổ sung vào [[glossary|Glossary]] thay vì mỗi note giải thích một kiểu.
+
+---
+
+## 3. BA qua các pha SDLC: làm gì, ra artifact gì
+
+SDLC (vòng đời phát triển phần mềm) là khung pha chung. BA không sở hữu toàn bộ vòng đời, nhưng có đầu vào/đầu ra rõ ở từng pha. Bảng dưới là mô hình tham chiếu; thứ tự và mức độ chồng lấn đổi theo mô hình dự án (xem [[agile-vs-waterfall-for-ba|Agile vs Waterfall cho BA]]).
+
+| Pha | BA làm gì | Artifact đầu ra |
+|---|---|---|
+| Khởi tạo / Discovery | khơi gợi & làm rõ problem, goal, actor, rule | requirement đã làm rõ (xem [[requirement-elicitation\|Elicitation]]) |
+| Phân tích | cấu trúc hoá yêu cầu, phân rã chức năng, ưu tiên | [[functional-decomposition-diagram\|FDD]], [[moscow-prioritization\|MoSCoW]], [[use-case-diagram\|Use Case]] |
+| Đặc tả | viết yêu cầu chi tiết cho đội phát triển | SRS, Use Case + AC (xem [[ba-documentation-types\|Hệ tài liệu BA]]) |
+| Thiết kế | phác bố cục & luồng màn hình | Wireframe / Mockup |
+| Phát triển | làm rõ, trả lời câu hỏi dev, bảo vệ scope | Q&A, clarification, [[user-story-and-acceptance-criteria\|story & AC]] |
+| Kiểm thử / UAT | hỗ trợ ca kiểm thử, nghiệm thu theo AC | tiêu chí nghiệm thu, hỗ trợ UAT |
+| Vận hành / Thay đổi | phân tích yêu cầu thay đổi và ảnh hưởng | [[change-request-and-impact-analysis\|Change Request & Impact]] |
+
+Đọc bảng theo chiều "đầu ra", không phải "đầu việc": ở mỗi pha hãy hỏi *artifact nào chứng minh BA đã hoàn thành phần của mình*.
+
+---
+
+## 4. Lộ trình phát triển (career path)
+
+Lộ trình không cố định, phụ thuộc mục tiêu cá nhân và môi trường. Mốc thời gian dưới đây là **tham chiếu từ khóa học, không phải chuẩn tuyệt đối** — có người đi nhanh/chậm hơn.
+
+| Cấp | Tham chiếu | Tự làm được gì |
+|---|---|---|
+| Fresher / Newbie | 6 tháng – 1 năm | dùng được template mô tả yêu cầu có sẵn; chưa tự thiết kế yêu cầu |
+| Junior | — | viết tài liệu chi tiết, xử lý exception theo khung dựng sẵn; tự thiết kế chưa đầy đủ |
+| Middle | 1.5 – 2.5 năm | estimate, tự chia nhỏ tính năng, train cấp dưới; phối hợp external có thể chưa cao |
+| Senior | 1.5 – 3.5 năm | chủ động, estimate tốt, quản nhóm nhỏ (3–7), học domain mới nhanh |
+
+Ba yếu tố quyết định lên cấp: **(1)** khả năng chủ động (estimate, thiết kế, xử lý ngoại lệ), **(2)** khả năng đào tạo người khác, **(3)** tốc độ thích nghi khi đổi domain.
+
+Các hướng rẽ nhánh từ Middle/Senior:
+
+- **PM / PO** — nặng kỹ năng quản lý, lập kế hoạch, product roadmap & vision.
+- **BA Leadership / BA Manager** — chuyên môn nghiệp vụ + kỹ năng quản lý.
+- **Management Consultant** — hiểu sâu một domain (tài chính, kế toán, giáo dục…) sau nhiều năm triển khai.
+
+Điểm cốt lõi: muốn đi xa hơn vai trò "lấy và đặc tả yêu cầu", chỉ giỏi chuyên môn là chưa đủ — phải xây thêm bộ kỹ năng quản lý hoặc chiều sâu domain.
+
+---
+
+## 5. Anti-patterns
+
+| Anti-pattern | Vì sao nguy hiểm | Cách sửa |
+|---|---|---|
+| Nhận 100% yêu cầu khách rồi đẩy cho dev | bỏ qua ràng buộc kỹ thuật/nguồn lực/pháp lý, vỡ kế hoạch | làm rõ đánh đổi, ưu tiên, từ chối có cơ sở |
+| Chỉ làm việc với một nhóm stakeholder | sót yêu cầu của tester/PQA/vận hành, lộ ra muộn | lập stakeholder map đủ cả external lẫn internal |
+| Coi BA chỉ là "cầu nối truyền lời" | giữ nguyên mơ hồ, không tạo giá trị phân tích | cân đối và cấu trúc hoá, không chuyển nguyên văn |
+| Xem BA là bước đệm dễ để lên PM | xem nhẹ chuyên môn, làm hời hợt | đầu tư kỹ năng phân tích & tài liệu trước |
+| Không gắn việc mình làm với artifact đầu ra | khó chứng minh "đã xong" ở mỗi pha | mỗi pha chốt một artifact rõ ràng |
+
+---
+
+## 6. Checklist nhanh
+
+Khi vào một dự án mới, BA nên trả lời được:
+
+- Ai là stakeholder external, ai là internal? Tôi đã bỏ sót nhóm nào chưa (tester, PQA, vận hành)?
+- Vấn đề nghiệp vụ thật mà dự án giải quyết là gì?
+- Dự án đang ở pha nào, và artifact BA cần ra ở pha này là gì?
+- Ba ràng buộc (kỹ thuật, nguồn lực, pháp lý) nào đang giới hạn việc đáp ứng yêu cầu?
+- Yêu cầu nào tôi có thể phải từ chối hoặc hoãn, và lý do là gì?
+
+Nếu chưa trả lời được, đừng vội cam kết phạm vi với bất kỳ bên nào.
+
+## References
+
+- [IIBA BABOK overview](https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/) — khung kiến thức nền về vai trò và knowledge areas của business analysis.
+- [Atlassian Agile Coach](https://www.atlassian.com/agile) — góc nhìn thực hành về vai trò BA/PO trong đội phát triển.
+
+## Internal Sources
+
+- [[collections/foundations/001 03-Vai-tro-cua-BA-trong-DA.pdf|Vai trò của BA trong dự án]]
+- [[collections/foundations/002 04-BA-Career-Path.pdf|BA Career Path]]
+- [[library/02-foundations/note/001 Tổng quan khóa học và Vị trí của BA trong dự án.md|Lesson note: Vị trí của BA]]
+- [[library/02-foundations/note/002 Tổng quan về BA và Lộ trình nghề nghiệp (Career Path).md|Lesson note: Career Path]]
+- [[mapping/README|Study Map & Source Mapping]]
+
+## Related
+
+- [[ba-documentation-types|Hệ tài liệu BA phải biết]]
+- [[agile-vs-waterfall-for-ba|Agile vs Waterfall cho BA]]
+- [[requirement-elicitation|Requirement Elicitation cho BA]]
+- [[glossary|Glossary]]

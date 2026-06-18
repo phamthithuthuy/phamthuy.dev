@@ -15,9 +15,11 @@
 | Thuật ngữ | Nghĩa ngắn | Note liên quan |
 |---|---|---|
 | Acceptance Criteria (AC) | Điều kiện cụ thể, kiểm chứng được, để xác nhận một user story đã hoàn thành đúng. | [[user-story-and-acceptance-criteria\|User Story & AC]] |
+| Agile | Cách làm phát triển lặp & tăng dần: yêu cầu tiến hoá, giao giá trị theo từng vòng. | [[agile-vs-waterfall-for-ba\|Agile vs Waterfall]] |
 | Backlog | Danh sách work item đã sắp ưu tiên, chờ được làm. | [[agile-concepts-for-ba\|Agile cho BA]] |
 | Backlog Refinement | Hoạt động làm rõ, chia nhỏ, ước lượng backlog item trước khi đưa vào sprint. | [[backlog-refinement\|Backlog Refinement]] |
-| BRD (Business Requirements Document) | Tài liệu mô tả yêu cầu ở mức nghiệp vụ/mục tiêu, trước khi đi vào chi tiết hệ thống. | — (Planned) |
+| BRD (Business Requirements Document) | Tài liệu mô tả yêu cầu ở mức nghiệp vụ/mục tiêu, trước khi đi vào chi tiết hệ thống. | [[ba-documentation-types\|Hệ tài liệu BA]] |
+| Business Analyst (BA) | Người cân đối yêu cầu giữa các stakeholder dưới ràng buộc kỹ thuật/nguồn lực/pháp lý, rồi chuyển thành tài liệu cho đội phát triển. | [[ba-role-and-sdlc\|Vai trò BA]] |
 | Change Request (CR) | Đề nghị thay đổi requirement/scope sau khi đã chốt, cần phân tích impact. | [[change-request-and-impact-analysis\|Change Request & Impact]] |
 | CRUD | Bốn thao tác dữ liệu nền: Create, Read, Update, Delete; dùng để soát đủ case khi bóc tính năng. | [[crud-operations\|CRUD cho BA]] |
 | Definition of Done (DoD) | Tập điều kiện một item phải đạt để coi là "xong". | [[agile-concepts-for-ba\|Agile cho BA]] |
@@ -29,11 +31,14 @@
 | MoSCoW | Khung ưu tiên: Must / Should / Could / Won't have. | [[moscow-prioritization\|MoSCoW cho BA]] |
 | NFR (Non-functional Requirement) | Yêu cầu về chất lượng/ràng buộc (hiệu năng, bảo mật, khả dụng…), không phải chức năng. | — (Planned) |
 | RTM (Requirements Traceability Matrix) | Bảng truy vết requirement ↔ use case ↔ test case, để không sót và biết cái gì ảnh hưởng cái gì. | — (Planned) |
+| SDLC | Vòng đời phát triển phần mềm: chuỗi pha từ khởi tạo → phân tích → thiết kế → build → test → vận hành. | [[ba-role-and-sdlc\|Vai trò BA & SDLC]] |
+| Solution Requirement | Yêu cầu mô tả hệ thống phải làm gì (chức năng + NFR) để đáp ứng nhu cầu; nhóm tài liệu BA làm chủ. | [[ba-documentation-types\|Hệ tài liệu BA]] |
 | SRS (Software Requirements Specification) | Tài liệu đặc tả yêu cầu phần mềm ở mức chi tiết. | [[ba-artifact-templates\|BA Artifact Templates]] |
 | Stakeholder | Bất kỳ ai có lợi ích hoặc ảnh hưởng tới dự án/sản phẩm. | [[requirement-elicitation\|Requirement Elicitation]] |
 | Story Point | Đơn vị ước lượng tương đối độ lớn/độ khó của một item. | [[agile-concepts-for-ba\|Agile cho BA]] |
 | Use Case | Mô tả kịch bản tương tác giữa actor và hệ thống để đạt một mục tiêu. | [[use-case-diagram\|Use Case cho BA]] |
 | User Story | Mô tả ngắn một nhu cầu từ góc nhìn người dùng, dạng "Là… tôi muốn… để…". | [[user-story-and-acceptance-criteria\|User Story & AC]] |
+| Waterfall | Mô hình phát triển tuyến tính: chốt yêu cầu đầy đủ trước, rồi mới thiết kế/build/test theo cột mốc. | [[agile-vs-waterfall-for-ba\|Agile vs Waterfall]] |
 
 ## Viết tắt
 
@@ -47,14 +52,19 @@
 | DoD | Definition of Done |
 | DoR | Definition of Ready |
 | FDD | Functional Decomposition Diagram |
+| FRD | Functional Requirements Document |
 | FRS | Functional Requirements Specification |
 | ITBA | IT Business Analyst |
+| MRD | Market Research Document |
 | NFR | Non-functional Requirement |
+| NFRS | Non-functional Requirements Specification |
+| PRD | Product Requirements Document |
 | RTM | Requirements Traceability Matrix |
 | SDLC | Software Development Life Cycle |
 | SRS | Software Requirements Specification |
 | UAT | User Acceptance Testing |
 | UML | Unified Modeling Language |
+| URD | User Requirements Document |
 
 ## Related
 

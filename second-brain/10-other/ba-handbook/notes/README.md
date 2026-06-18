@@ -10,7 +10,7 @@
 
 | Nhóm | Dùng khi | Trạng thái | Index |
 |---|---|---|---|
-| 00 — Foundations | cần hiểu vai trò BA, SDLC, hệ tài liệu trước khi vào việc | scaffold | [[00-foundations/README\|00 — Foundations]] |
+| 00 — Foundations | cần hiểu vai trò BA, SDLC, hệ tài liệu trước khi vào việc | có note | [[00-foundations/README\|00 — Foundations]] |
 | 01 — Discovery & Requirements | khai thác và làm rõ yêu cầu trước khi thiết kế | có note | [[01-discovery-and-requirements/README\|01 — Discovery & Requirements]] |
 | 02 — System Analysis & Design | bóc tách, ưu tiên, mô hình hóa hệ thống | có note | [[02-system-analysis-and-design/README\|02 — System Analysis & Design]] |
 | 03 — Specification | viết đặc tả và truy vết yêu cầu (SRS, RTM) | scaffold | [[03-specification/README\|03 — Specification]] |
@@ -25,6 +25,14 @@
 ---
 
 ## Mở từ đâu?
+
+### Nếu mới vào nghề hoặc vào dự án mới
+
+1. [[ba-role-and-sdlc|Vai trò BA và vị trí trong dự án]]
+2. [[ba-documentation-types|Hệ tài liệu BA phải biết]]
+3. [[agile-vs-waterfall-for-ba|Agile vs Waterfall cho BA]]
+
+Hiểu mình kết nối ai, ra artifact gì ở mỗi pha, và mô hình dự án ảnh hưởng cách làm việc thế nào, trước khi đi sâu vào elicitation.
 
 ### Nếu đang học Agile BA từ đầu
 
@@ -73,6 +81,14 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 
 ## Tất cả notes hiện có
 
+### 00 — Foundations
+
+| Note | Dùng khi |
+|---|---|
+| [[ba-role-and-sdlc|Vai trò BA và vị trí trong dự án]] | cần định vị vai trò BA, bản đồ stakeholder, đầu ra theo pha SDLC, hoặc xem lộ trình nghề |
+| [[agile-vs-waterfall-for-ba|Agile vs Waterfall cho BA]] | cần chỉnh cách làm việc và bộ tài liệu theo mô hình dự án |
+| [[ba-documentation-types|Hệ tài liệu BA phải biết]] | cần xếp tài liệu vào tầng why/what/how và biết BA làm chủ nhóm nào |
+
 ### 01 — Discovery & Requirements
 
 | Note | Dùng khi |
@@ -112,7 +128,7 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 
 Roadmap chi tiết nằm trong README của từng nhóm (mục Planned scope). Các note dự kiến:
 
-- **00 — Foundations:** BA role & SDLC, Agile vs Waterfall, hệ tài liệu BA
+- **00 — Foundations:** BABOK overview (knowledge areas)
 - **01 — Discovery:** Stakeholder Interview, Non-functional Requirement for BA
 - **02 — System Analysis & Design:** Activity Diagram, Sequence Diagram, State Machine, Wireframe
 - **03 — Specification:** SRS/FRS, BRD, Requirements Traceability Matrix (RTM)
