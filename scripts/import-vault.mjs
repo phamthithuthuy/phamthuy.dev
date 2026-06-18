@@ -94,22 +94,40 @@ const parseDoc = raw => {
       break;
     }
   }
-  // First non-empty, non-heading, non-callout, non-fence paragraph after the H1.
+  // Description: prefer the lead blockquote summary right after the H1 (the
+  // handbook template opens with a 1–3 sentence "> ..." abstract). Fall back to
+  // the first normal paragraph when there is no lead blockquote.
   let description = "";
-  for (let i = titleIdx + 1; i < lines.length; i++) {
-    const l = lines[i].trim();
-    if (!l) continue;
-    if (l.startsWith("#")) continue;
-    if (l.startsWith(">")) continue;
-    if (l.startsWith("```")) {
-      // skip fenced block
-      i++;
-      while (i < lines.length && !lines[i].trim().startsWith("```")) i++;
-      continue;
+  let di = titleIdx + 1;
+  while (di < lines.length && !lines[di].trim()) di++;
+  if (di < lines.length && lines[di].trim().startsWith(">")) {
+    const buf = [];
+    while (di < lines.length && lines[di].trim().startsWith(">")) {
+      const t = lines[di]
+        .trim()
+        .replace(/^>+\s?/, "") // strip blockquote markers
+        .replace(/^\[![^\]]+\]\s*/, ""); // strip Obsidian callout header
+      if (t) buf.push(t);
+      di++;
     }
-    if (l.startsWith("|") || l.startsWith("---")) continue;
-    description = l;
-    break;
+    description = buf.join(" ");
+  }
+  if (!description) {
+    for (let i = titleIdx + 1; i < lines.length; i++) {
+      const l = lines[i].trim();
+      if (!l) continue;
+      if (l.startsWith("#")) continue;
+      if (l.startsWith(">")) continue;
+      if (l.startsWith("```")) {
+        // skip fenced block
+        i++;
+        while (i < lines.length && !lines[i].trim().startsWith("```")) i++;
+        continue;
+      }
+      if (l.startsWith("|") || l.startsWith("---")) continue;
+      description = l;
+      break;
+    }
   }
   // Strip the H1 line from the body.
   const body =
@@ -198,9 +216,11 @@ let linkStrips = 0;
 for (const entry of entries) {
   const fromRel = entry.rel;
   const body = entry.body.replace(WIKILINK, (_full, inner) => {
-    // split alias (none expected) and anchor (none expected), but handle defensively
-    const [lhs, alias] = inner.split("|").map(s => s.trim());
-    const target = lhs.split("#")[0].trim();
+    // Split target|alias. Inside markdown tables the pipe is escaped as "\|",
+    // leaking a trailing backslash into the target — strip it so the link resolves.
+    const [lhsRaw, aliasRaw] = inner.split("|");
+    const alias = (aliasRaw ?? "").trim();
+    const target = lhsRaw.replace(/\\+$/, "").split("#")[0].trim();
     const hit = resolveTarget(target, fromRel);
     if (hit && hit.rel !== fromRel) {
       linkRewrites++;
