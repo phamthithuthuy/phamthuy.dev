@@ -37,3 +37,6 @@ compose.override.yaml
 plantuml.jar
 
 .serena
+
+# editor settings
+.vscode/

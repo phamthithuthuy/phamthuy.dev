@@ -3,14 +3,13 @@
 How the BA handbook vault maps into AstroPaper's `posts` collection, via
 `scripts/import-vault.mjs`.
 
-- **Source:** `second-brain/10-other/ba-handbook/notes/`
+- **Source:** `ba-handbook/notes/`
 - **Output:** `src/content/posts/` (URL prefix `/posts`)
 - **Run:** `node scripts/import-vault.mjs` (dry run) · `--write` (perform import)
 
-> **Trạng thái hiện tại:** vault mới chỉ chứa *khung* (taxonomy + `README.md` +
-> `_conventions.md` + `note-guidelines.md` + `glossary.md`) — tất cả đều bị loại
-> khỏi import, nên hiện có **0 bài**. Bài viết xuất hiện khi thêm note nội dung
-> thật vào các thư mục taxonomy.
+> **Trạng thái hiện tại:** handbook có 3 note nội dung trong `00-foundations/`.
+> Các file khung (`README.md`, `_conventions.md`, `note-guidelines.md` và
+> `glossary.md`) không được import thành bài viết.
 
 ---
 
@@ -20,7 +19,7 @@ How the BA handbook vault maps into AstroPaper's `posts` collection, via
 |---|---|
 | `<NN-folder>/<note>.md` (note nội dung) | ✅ → `posts/<topic>/<slug>` |
 | mọi `README.md` | ❌ bỏ (mục lục thư mục) |
-| `_conventions.md` | ❌ bỏ (guideline tầng 3) |
+| file bắt đầu bằng `_` (ví dụ `_conventions.md`, `_planed.md`) | ❌ bỏ (tài liệu nội bộ) |
 | `note-guidelines.md`, `glossary.md` | ❌ bỏ (tài liệu khung) |
 
 ## 2. Frontmatter sinh tự động

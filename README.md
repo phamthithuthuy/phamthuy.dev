@@ -43,6 +43,8 @@ render sơ đồ [PlantUML](https://plantuml.com) (UML/BPMN) tại build-time, d
 .
 ├── astro-paper.config.ts      # Cấu hình site (title, url, lang, socials…)
 ├── astro.config.ts            # Astro config: output static, i18n, remark plugins, fonts
+├── ba-handbook/               # Nguồn note BA canonical
+│   └── notes/                 # Taxonomy và nội dung note để import
 ├── plugins/
 │   └── remark-plantuml.mjs    # Render ```plantuml → SVG lúc build (hash-cache)
 ├── scripts/
@@ -99,7 +101,7 @@ thay block bằng `<figure class="diagram diagram-plantuml"><img …></figure>`.
 ## Import nội dung
 
 `scripts/import-vault.mjs` là importer **một chiều, chạy một lần**: đọc (read-only)
-vault BA handbook `second-brain/10-other/ba-handbook/`, transform frontmatter +
+vault BA handbook `ba-handbook/`, transform frontmatter +
 wikilink `[[...]]` → markdown link, đổi sang kebab-case, và ghi bản sao ra
 `src/content/posts/`. File gốc trong vault không bị sửa. Chi tiết xem
 [`MIGRATION.md`](MIGRATION.md).

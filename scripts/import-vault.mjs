@@ -1,9 +1,9 @@
-// One-off vault importer: second-brain/10-other/ba-handbook/notes → src/content/posts
+// One-off vault importer: ba-handbook/notes → src/content/posts
 //
 // Run:  node scripts/import-vault.mjs            (dry run: reports, writes nothing)
 //       node scripts/import-vault.mjs --write     (performs the import)
 //
-// - Excludes: every README.md, _conventions.md, note-guidelines.md, glossary.md
+// - Excludes: README.md, underscore-prefixed internal files, note-guidelines.md, glossary.md
 // - Generates YAML frontmatter (title from H1, description from 1st paragraph)
 // - Strips the leading H1 from the body (title comes from frontmatter)
 // - Rewrites [[wikilinks]] -> [Title](/posts/<slug>); strips unresolved ones
@@ -15,14 +15,14 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const SRC = path.join(ROOT, "second-brain/10-other/ba-handbook/notes");
+const SRC = path.join(ROOT, "ba-handbook/notes");
 const OUT = path.join(ROOT, "src/content/posts");
 const URL_PREFIX = "/posts";
 const WRITE = process.argv.includes("--write");
 
-// Date source: a blobless clone of the remote (local .git was removed).
-// Falls back to today's date if unavailable.
-const GIT_REPO = "/tmp/sb-dates";
+// Read dates from this repository. Historical source paths are also checked so
+// moving the handbook does not reset every post's publication date.
+const GIT_REPO = ROOT;
 const FALLBACK_DATE = new Date().toISOString();
 
 // ---------- helpers ----------
@@ -31,7 +31,7 @@ const isExcluded = relPath => {
   const base = path.basename(relPath).toLowerCase();
   return (
     base === "readme.md" ||
-    base === "_conventions.md" ||
+    base.startsWith("_") ||
     base === "note-guidelines.md" ||
     base === "glossary.md"
   );
@@ -58,27 +58,34 @@ const walk = dir => {
   return out;
 };
 
-const firstCommitDate = relFromRepoRoot => {
-  try {
-    const iso = execFileSync(
-      "git",
-      [
-        "-C",
-        GIT_REPO,
-        "log",
-        "--diff-filter=A",
-        "--follow",
-        "--format=%cI",
-        "-1",
-        "--",
-        relFromRepoRoot,
-      ],
-      { encoding: "utf8" }
-    ).trim();
-    return iso || FALLBACK_DATE;
-  } catch {
-    return FALLBACK_DATE;
+const firstCommitDate = relFromNotes => {
+  const currentPath = `ba-handbook/notes/${relFromNotes}`;
+  const queries = [
+    ["--follow", "--", currentPath],
+    ["--all", "--", `:(glob)**/ba-handbook/notes/${relFromNotes}`],
+  ];
+
+  for (const query of queries) {
+    try {
+      const iso = execFileSync(
+        "git",
+        [
+          "-C",
+          GIT_REPO,
+          "log",
+          "--diff-filter=A",
+          "--format=%cI",
+          "-1",
+          ...query,
+        ],
+        { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] }
+      ).trim();
+      if (iso) return iso;
+    } catch {
+      // Try the next historical path before falling back.
+    }
   }
+  return FALLBACK_DATE;
 };
 
 // Extract H1 title and first paragraph description from raw markdown.
@@ -233,8 +240,7 @@ for (const entry of entries) {
     return alias || path.basename(target);
   });
 
-  const relFromRepoRoot = `10-other/ba-handbook/notes/${entry.rel}`;
-  const pub = firstCommitDate(relFromRepoRoot);
+  const pub = firstCommitDate(entry.rel);
 
   const segs = entry.rel.split("/");
   // Tag = the top-level taxonomy folder (e.g. 00-foundations -> foundations).

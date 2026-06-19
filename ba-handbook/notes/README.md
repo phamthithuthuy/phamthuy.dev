@@ -93,7 +93,17 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 
 | Note | Dùng khi |
 |---|---|
+| [[problem-framing-and-business-objectives|Problem Framing & Business Objectives]] | cần tách symptom/problem/solution idea và chốt objective có measure |
+| [[current-state-and-future-state-analysis|Current & Future State Analysis]] | cần mô tả as-is, future capability, gap và transition need |
+| [[stakeholder-analysis-and-engagement|Stakeholder Analysis & Engagement]] | cần tìm stakeholder, evidence, authority và engagement phù hợp |
+| [[scope-assumptions-constraints|Scope, Assumptions & Constraints]] | cần quản boundary, uncertainty, dependency và constraint có nguồn |
 | [[requirement-elicitation|Requirement Elicitation cho BA]] | cần khai thác requirement từ stakeholder, case study, tài liệu cũ, hoặc observation thực tế |
+| [[elicitation-technique-selection|Elicitation Technique Selection]] | cần chọn technique theo unknown, evidence, bias và context |
+| [[stakeholder-interview|Stakeholder Interview]] | cần khai thác context/example qua trao đổi 1:1 |
+| [[requirements-workshop|Requirements Workshop]] | cần shared model, alignment hoặc decision nhiều bên |
+| [[non-functional-requirements-for-ba|Non-functional Requirements cho BA]] | cần khai thác quality expectation thành scenario có measure |
+| [[requirement-quality-and-validation|Requirement Quality & Validation]] | cần verify/validate requirement trước handoff |
+| [[solution-options-and-business-case|Solution Options & Business Case]] | cần so sánh option và tạo recommendation cuối discovery |
 
 ### 02 — System Analysis & Design
 
@@ -129,7 +139,7 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 Roadmap chi tiết nằm trong README của từng nhóm (mục Planned scope). Các note dự kiến:
 
 - **00 — Foundations:** BABOK overview (knowledge areas)
-- **01 — Discovery:** Stakeholder Interview, Non-functional Requirement for BA
+- **01 — Discovery:** v1 đã đủ; mở rộng sau bằng Observation, Document Analysis, Survey, Prototyping
 - **02 — System Analysis & Design:** Activity Diagram, Sequence Diagram, State Machine, Wireframe
 - **03 — Specification:** SRS/FRS, BRD, Requirements Traceability Matrix (RTM)
 - **04 — Agile Delivery:** Prioritization and Estimation, Process Modeling and Flow Diagram
@@ -146,4 +156,3 @@ Roadmap chi tiết nằm trong README của từng nhóm (mục Planned scope). 
 - [[note-guidelines|Note guidelines]]
 - [[../glossary|Glossary]]
 - [[../mapping/README|Study Map & Source Mapping]]
-</content>

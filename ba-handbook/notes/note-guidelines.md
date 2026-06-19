@@ -20,7 +20,7 @@ Mục tiêu không chỉ là "viết cho đủ section", mà là tạo ra tài l
 Áp dụng cho toàn bộ thư mục:
 
 ```text
-10-other/ba-handbook
+ba-handbook
 ```
 
 Hiện áp dụng trực tiếp cho:
