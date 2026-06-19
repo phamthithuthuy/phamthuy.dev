@@ -1,6 +1,17 @@
-MIT License
+# License
+
+This repository contains two categories of work, each under its own license.
+
+---
+
+## Code — MIT License
+
+Applies to: all source code, including but not limited to Astro config,
+plugins, scripts, stylesheets, and build tooling (everything in `src/`
+except `src/content/`, `plugins/`, `scripts/`, root config files).
 
 Copyright (c) 2023 Sat Naing
+Copyright (c) 2026 Phạm Thị Thu Thủy
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +30,35 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+## Content — CC BY-NC-ND 4.0
+
+Applies to: all blog posts, BA handbook notes, glossary, CV, diagrams,
+images, and written content (everything in `src/content/`, `ba-handbook/`,
+`public/diagrams/`, `cv_phamthuy.pdf`).
+
+[Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International][cc]
+
+© 2026 Phạm Thị Thu Thủy
+
+You are free to:
+
+- **Share** — copy and redistribute the material in any medium or format
+
+Under the following terms:
+
+- **Attribution** — you must give appropriate credit, provide a link to the
+  license, and indicate if changes were made.
+- **NonCommercial** — you may not use the material for commercial purposes.
+- **NoDerivatives** — if you remix, transform, or build upon the material,
+  you may not distribute the modified material.
+
+The full legal code is at <https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode>.
+
+[cc]: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+---
+
+SPDX-License-Identifier: MIT AND CC-BY-NC-ND-4.0
