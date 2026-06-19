@@ -1,6 +1,6 @@
 ---
 title: "Hệ tài liệu BA phải biết"
-pubDatetime: 2026-06-18T08:11:05.022Z
+pubDatetime: 2026-06-18T02:28:24+00:00
 description: "Note này giúp BA định vị mọi loại tài liệu yêu cầu vào ba tầng — Business, Stakeholder, Solution — và biết với mỗi tầng thì ai viết, ai đọc, và BA tham gia tới…"
 tags: ["ba", "foundations"]
 draft: false

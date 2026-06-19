@@ -1,6 +1,6 @@
 ---
 title: "Agile vs Waterfall cho BA"
-pubDatetime: 2026-06-18T08:11:05.022Z
+pubDatetime: 2026-06-18T02:28:24+00:00
 description: "Note này giúp BA điều chỉnh cách làm việc và bộ tài liệu theo mô hình dự án, thay vì áp một thói quen cố định. Trọng tâm không phải tranh luận mô hình nào tốt…"
 tags: ["ba", "foundations"]
 draft: false
