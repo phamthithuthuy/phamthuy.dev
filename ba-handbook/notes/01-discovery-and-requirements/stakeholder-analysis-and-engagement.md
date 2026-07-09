@@ -94,6 +94,31 @@ Fact từ Procurement chưa đủ để chốt approval flow:
 **Assumption cần kiểm chứng:** Security chỉ cần được informed. Nếu access policy
 là constraint bắt buộc, Security phải được consulted hoặc approve phần liên quan.
 
+### Running case: ShopFlow
+
+Áp quét sáu hướng (§1) cho ShopFlow `SF-1`:
+
+| Hướng quét | Stakeholder ShopFlow | Evidence / decision họ nắm |
+|---|---|---|
+| 1. thực hiện/nhận kết quả process | Nhân viên kho | workflow nhập hàng `SF-7`, kiểm stock `SF-6`, cập nhật delivery `SF-5` |
+| 2. quyết định/approve/chi tiền | Chủ shop | duyệt boundary "không payment/shipper thật", quyết định rule return `SF-8`, threshold low stock `SF-9` |
+| 3. tạo/sở hữu/dùng data | Khách hàng | browse catalog `SF-2`, tạo order `SF-3` — tạo ra order data và payment event |
+| 4. build/test/operate | Developer / Tester | nhận AC từ mỗi story, viết QA scenario (`SF-13`, `SF-16`, `SF-19`) |
+| 5. risk/compliance/audit | Chủ shop (kiêm) | quy định return window, audit stock movement `SF-6` |
+| 6. bị ảnh hưởng nhưng ít quyền | Khách hàng | không có quyền quyết định nhưng chịu impact của stock validation fail, delivery delay |
+
+**Stakeholder register rút gọn cho ShopFlow:**
+
+| Role | Impact | Knowledge | Influence | Engagement |
+|---|---|---|---|---|
+| Chủ shop | solution thay cách quản lý shop thủ công → tự động | business rule (return, threshold, pricing) | **approve** | workshop kick-off + decision request hàng sprint |
+| Nhân viên kho | workflow nhập/xuất/kiểm đổi từ sổ giấy → màn hình | hành vi thực tế lúc nhận hàng, kiểm stock | **consulted** | observation tại kho + playback prototype |
+| Khách hàng | trải nghiệm mua hàng đổi từ chat/điện thoại → web | pain point thật lúc hết hàng, chờ trạng thái | **informed** (MVP) | sample interview 3-5 khách quen |
+
+**Lưu ý về conflict of interest:** Trong shop nhỏ, Chủ shop kiêm luôn compliance/audit (hướng 2 và 5 là cùng một người). Với enterprise, đây là hai role tách biệt — BA phải kiểm tra segregation of duties và không được gộp chung chỉ vì "một người nói là đủ".
+
+**Gap dễ bỏ sót:** Nhân viên kho là internal stakeholder nhưng BA mới thường chỉ làm việc với Chủ shop (người ký duyệt). Hậu quả: pre-condition nhập hàng `SF-7` (supplier giao thiếu/muộn), exception lúc kiểm stock `SF-15` (hàng hỏng khi kiểm) không ai phát hiện cho tới sprint thực thi. Engagement plan cho Nhân viên kho: observation 1 buổi sáng lúc nhận hàng supplier + playback wireframe `SF-38` trước khi dev.
+
 ## 6. Anti-patterns
 
 | Anti-pattern | Cách sửa |

@@ -1,6 +1,6 @@
 ---
 title: "Problem Framing và Business Objectives cho BA"
-pubDatetime: 2026-06-18T18:14:08.198Z
+pubDatetime: 2026-06-19T07:11:15+00:00
 description: "Note này giúp BA đi từ symptom hoặc feature request tới problem statement và objective có thể đo. Mục tiêu là điều tra đúng bài toán trước khi đặc tả một solut…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false
@@ -92,6 +92,29 @@ owner là Head of Procurement.” Target này cần stakeholder xác nhận; nó
 - **Interview/observation:** cho context; dễ chịu recall/observer bias.
 
 Kết hợp ít nhất hai loại evidence khi quyết định nguyên nhân ảnh hưởng scope lớn.
+
+### Running case: ShopFlow
+
+**Từ symptom tới objective — ShopFlow `SF-1`:**
+
+| Lớp (§1) | ShopFlow |
+|---|---|
+| Symptom | chủ shop than "mỗi lần có khách order là phải chạy ra kho đếm, có lúc đếm xong khách hủy vì lâu quá" |
+| Evidence | 3 lần/tháng order vượt stock; mỗi lần mất ~15 phút gọi điện xin lỗi khách; 1 khách cancel trung bình mỗi lần (nguồn: sổ ghi chép + interview chủ shop) |
+| Cause hypothesis | (1) không biết stock thực tế lúc nhận order; (2) khách không thấy sản phẩm còn/hết nên order mù; (3) quy trình ghi sổ chậm hơn tốc độ bán |
+| Problem statement | **Chủ shop** trong **giờ bán hàng (9h–18h)** gặp **tình trạng không biết chính xác tồn kho thực tế khi khách đặt hàng**, dẫn tới **nhận order vượt stock, mất thời gian gọi xin lỗi và mất khách (3 lần/tháng, ~45 phút/tháng)**. Cần xác minh hypothesis (2) là phụ hay cũng là nguyên nhân chính. |
+| Objective | giảm số lần order vượt stock từ baseline 3 lần/tháng xuống 0 lần/tháng (**target**), đo trong 8 tuần sau rollout (**time**), owner là chủ shop |
+| Solution idea | hệ thống online có catalog real-time + stock validation (8 story `SF-2..SF-9`) |
+
+**Áp §2 — Problem statement của từng story chính:**
+
+| Story | Problem statement |
+|---|---|
+| `SF-3` Create Order | Khách hàng không biết sản phẩm còn/hết trước khi đặt, dẫn tới order bị reject sau khi đã mất thời gian chọn món |
+| `SF-6` Manage Stock | Nhân viên kho không có một nguồn số liệu stock duy nhất; sổ giấy và thực tế lệch nhau sau mỗi đợt nhập hàng |
+| `SF-5` Delivery Status | Khách hàng phải gọi điện hỏi "đơn tới đâu" vì không có kênh tự tra cứu; mỗi ngày 2-3 cuộc gọi làm gián đoạn chủ shop |
+
+**Checklist §6 kiểm chứng:** cả 3 problem statement đều không chứa "xây màn hình X" — chúng mô tả actor + context + impact + evidence, giữ solution space mở cho team chọn cách giải.
 
 ## 5. Anti-patterns
 

@@ -105,6 +105,15 @@ Từ mental model này suy ra mọi khác biệt còn lại: nếu yêu cầu ch
 
 Quy tắc thực dụng: để **bản chất bài toán và ràng buộc** chọn mô hình, không để sở thích đội chọn. Khi không chắc, hỏi: *yêu cầu sẽ ổn định hay còn thay đổi nhiều?* và *chi phí của một thay đổi muộn lớn tới đâu?*
 
+### Running case: ShopFlow
+
+Dự án ShopFlow (Jira Epic `SF-1` "Online Shop Sales and Inventory MVP") là ví dụ điển hình của **hybrid**:
+
+- **Phần chốt trước (hướng Waterfall)**: scope người dùng, ba stakeholder (chủ shop, nhân viên kho, khách hàng), danh sách 8 luồng nghiệp vụ, boundary "không tích hợp payment/shipper thật" — được khoanh ở đầu Epic `SF-1` và ổn định suốt Sprint 1. Việc này như chốt khung yêu cầu & ngân sách ở đầu.
+- **Phần tiến hoá (hướng Agile)**: 8 story `SF-2..SF-9` được chia nhỏ thành 30+ sub-task (`SF-11..SF-43`) và đưa vào backlog theo sprint; acceptance criteria làm rõ dần qua refinement. Chẳng hạn `SF-3 Create Customer Order` tách thành 3 sub-task: stock validation (`SF-11`), order data model (`SF-12`), QA scenarios (`SF-13`) — xây theo lát, không chốt 100 trang SRS trước.
+
+Hệ quả cho BA: cùng lúc vừa phải **vẽ khung Use Case / domain model (`SF-10`)** như một bộ tài liệu nền, vừa vận hành backlog story theo sprint. Đừng ngạc nhiên nếu được yêu cầu cả hai — đây chính là "Water-Scrum-Fall" ở §4.
+
 ---
 
 ## 4. Thực tế thường là hybrid

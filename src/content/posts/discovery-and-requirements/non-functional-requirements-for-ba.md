@@ -1,6 +1,6 @@
 ---
 title: "Non-functional Requirements cho BA"
-pubDatetime: 2026-06-18T18:14:08.198Z
+pubDatetime: 2026-06-19T07:11:15+00:00
 description: "Note này giúp BA khai thác quality expectation thành NFR có context và measure. “Nhanh”, “dễ dùng”, “bảo mật cao” là chủ đề cần làm rõ, chưa phải requirement c…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false
@@ -67,17 +67,32 @@ không phải chuẩn chung.
 
 Không phải project nào cũng cần mọi nhóm. Chọn theo risk và context.
 
-## 4. Running case
+## 4. Running case: ShopFlow
 
-| Candidate | Source/condition | Measure/open question |
+Áp quality attribute scenario (§2) cho từng nhóm NFR trong ShopFlow:
+
+**Performance — `SF-3 Create Customer Order`:**
+> Trong giờ cao điểm 10h–12h sáng (**environment**), khi khách hàng đã duyệt catalog (**source**) bấm "Đặt hàng" với 3–5 món (**stimulus**), hệ thống (**artifact**) phải kiểm tra stock và tạo order (**response**) trong dưới 3 giây ở p95 (**measure**).
+
+**Availability — toàn hệ thống:**
+> MVP chấp nhận downtime ngoài giờ kinh doanh (21h–7h). Trong giờ bán hàng, nếu backend lỗi, hiển thị thông báo thân thiện thay vì crash — không yêu cầu HA/replication.
+
+**Security — `SF-4 Simulate Order Payment`:**
+> Trong mọi thao tác thanh toán (**environment**), khi khách hàng (**source**) gửi thông tin thanh toán mock (**stimulus**), hệ thống (**artifact**) không được lưu hoặc log bất kỳ thông tin thẻ nào, chỉ ghi event "payment_attempt" với orderId, amount, status, timestamp (**response**). Chỉ chủ shop được xem danh sách payment; nhân viên kho không có quyền truy cập (**measure**).
+
+**Usability — `SF-5 Update Delivery Status`:**
+> Nhân viên kho (**source**) cập nhật trạng thái giao hàng bằng điện thoại khi đang ở ngoài shop (**environment**). Màn hình delivery management phải thao tác được bằng một tay, nút trạng thái đủ lớn để bấm không cần zoom.
+
+**Data integrity — `SF-11 Stock Validation`:**
+> Khi tạo order, nếu stock validation pass nhưng trước khi commit có người khác cũng đặt món cuối cùng, hệ thống phải reject order thứ hai (atomic check-and-reserve). Không chấp nhận oversell.
+
+**Trade-off hiển thị rõ trong ShopFlow:**
+
+| Trade-off | Đánh đổi | Quyết định MVP |
 |---|---|---|
-| requester xem status | employee, giờ làm việc | target latency và percentile cần test xác nhận |
-| chỉ người liên quan xem attachment | Security policy | role-permission matrix và audit event |
-| approval vẫn hoạt động khi Finance service lỗi | Procurement/Operations | fallback, recovery time và data consistency chưa chốt |
-| employee dùng bàn phím hoàn thành submission | accessibility need | standard/acceptance method cần owner xác nhận |
-
-Trade-off phải lộ ra: cache giúp latency nhưng có thể làm status cũ; audit chi
-tiết tăng traceability nhưng ảnh hưởng privacy/storage.
+| Real-time stock sync | chính xác tuyệt đối vs latency/chi phí | stock kiểm tra tại thời điểm order; không real-time sync liên tục |
+| Audit log đầy đủ | traceability vs storage/complexity | `SF-6` ghi stock movement; `SF-4` payment audit chỉ log event, không log mock data chi tiết |
+| Mobile-responsive toàn bộ | tiện cho nhân viên kho vs effort | ưu tiên mobile cho `SF-5` delivery + `SF-7` receiving; các màn còn lại desktop-first |
 
 ## 5. Anti-patterns
 

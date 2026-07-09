@@ -1,6 +1,6 @@
 ---
 title: "Solution Options và Business Case cho BA"
-pubDatetime: 2026-06-18T18:14:08.198Z
+pubDatetime: 2026-06-19T07:11:15+00:00
 description: "Note này giúp BA so sánh các phương án sau khi problem và future capability đã đủ rõ. Option analysis phải bao gồm “không làm gì”, evidence, trade-off và mức c…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false
@@ -35,33 +35,39 @@ Option có thể kết hợp, nhưng phải nói rõ boundary và dependency.
 
 ## 3. Decision matrix
 
-Running case, score chỉ minh họa và phải được decision owner chốt weight:
+### Running case: ShopFlow
 
-| Criterion | Weight | Process + shared tracker | Configure current tool | Build portal |
-|---|---:|---:|---:|---:|
-| Outcome fit | 25 | 3 | 4 | 5 |
-| Time to value | 20 | 5 | 4 | 2 |
-| Cost/effort | 15 | 5 | 4 | 1 |
-| Security/compliance | 15 | 3 | 4 | 3 |
-| Operational support | 15 | 2 | 4 | 3 |
-| Reversibility/learning | 10 | 5 | 4 | 2 |
+Áp option set (§2) cho bài toán "shop cần hệ thống quản lý bán hàng + tồn kho":
 
-Mỗi score phải có rationale/evidence/confidence. Không cộng số nếu scale và weight
-chưa thống nhất; matrix trước hết là công cụ làm lộ trade-off.
+| # | Option | Mô tả | Trade-off chính |
+|---|---|---|---|
+| 1 | **Do nothing** | giữ nguyên sổ giấy + điện thoại + chat | không tốn chi phí; vẫn bán vượt stock 3 lần/tháng, mất khách |
+| 2 | **Process change only** | chuẩn hóa quy trình kiểm kho trước khi nhận order (checklist giấy) | nhanh, không cần code; không scale được, vẫn phụ thuộc trí nhớ |
+| 3 | **Buy: dùng POS có sẵn** | cài POS tool có sẵn (KiotViet, Sapo…) | nhanh có inventory; không customize được flow return `SF-8`, alert `SF-9` theo đúng ý chủ shop |
+| 4 | **Build MVP** | tự xây web với 8 luồng `SF-2..SF-9` như Epic `SF-1` | đúng nhu cầu; tốn thời gian dev; cần maintain |
 
-## 4. Business case tối thiểu
+**Decision matrix ShopFlow (§3):**
 
-- problem/objective và baseline;
-- option, including do-nothing;
-- benefit/outcome hypothesis và cách đo;
-- cost/effort range, dependency, constraint;
-- risk, assumption và confidence;
-- recommendation + rejected options + rationale;
-- decision owner, date và revisit trigger.
+| Criterion | Weight | Option 1: Do nothing | Option 2: Process fix | Option 3: Buy POS | Option 4: Build MVP |
+|---|---|---|---:|---:|---:|---:|
+| Outcome fit (cover 8 flows) | 25 | 1 | 2 | 3 | 5 |
+| Time to value | 20 | 5 | 5 | 4 | 2 |
+| Cost/effort (MVP 2 sprint) | 20 | 5 | 4 | 3 | 1 |
+| Customizability (return rule, alert) | 15 | 1 | 1 | 2 | 5 |
+| Operational support (shop tự maintain) | 10 | 5 | 3 | 2 | 2 |
+| Learning/reversibility | 10 | 5 | 5 | 3 | 4 |
 
-Ví dụ recommendation: timebox 4 tuần cấu hình tool hiện tại để kiểm chứng khả năng
-giảm status inquiry; chỉ build portal nếu audit/access hoặc workflow exception
-không đáp ứng. Đây là staged decision, không phải cam kết kiến trúc.
+**Recommendation (theo §4):** Option 4 (Build MVP) vì (1) outcome fit tuyệt đối — 8 luồng thiết kế riêng cho shop nhỏ, (2) customizability cho return rule + low stock alert là khác biệt chính so với POS có sẵn, (3) trade-off lớn nhất là time to value thấp (2 sprint) — chấp nhận được vì MVP chỉ xây core flow `SF-2`, `SF-3`, `SF-6` ở Sprint 1. **Revisit trigger:** sau Sprint 2, nếu adoption < 50% hoặc POS tool chứng minh đủ nhu cầu → xem xét pivot sang Option 3.
+
+**Business case tối thiểu cho ShopFlow MVP:**
+
+| Thành phần | ShopFlow |
+|---|---|
+| Problem | 3 lần/tháng order vượt stock, mỗi lần mất ~45 phút và 1 khách cancel |
+| Expected benefit | giảm order vượt stock xuống 0; giảm thời gian xử lý đơn từ ~15 phút xuống < 2 phút |
+| Cost | 2 sprint MVP (Sprint 1: `SF-2`, `SF-3`, `SF-6`; Sprint 2: phần còn lại) |
+| Payback | đo adoption sau 8 tuần; nếu ≥ 50% khách quen dùng web → ROI dương |
+| Risk chính | khách không quen dùng web, vẫn gọi điện → cần survey sau 2 tuần |
 
 ## 5. Anti-patterns
 

@@ -66,14 +66,31 @@ mới. Giữ solution space mở tới option analysis.
 Gap phải trace về evidence và objective. “Chưa có mobile app” không phải gap nếu
 không chứng minh capability/outcome bị thiếu.
 
-## 4. Running case và transition need
+## 4. Running case: ShopFlow
 
-- **Current fact:** 6/10 sample thiếu budget code ở submission đầu.
-- **Future capability:** submission không vào approval queue nếu thiếu required data.
-- **Gap:** data validation và owner của budget code chưa rõ.
-- **Transition need:** map request đang mở sang ID mới và train Procurement.
-- **Constraint:** authentication bằng corporate identity.
-- **Open question:** request cũ có cần migrate attachment không?
+Áp sáu lens (§1) để phân tích current state của shop trước khi có ShopFlow:
+
+| Lens | Current state (manual) | Evidence source |
+|---|---|---|
+| People | chủ shop một mình nhận order + kiểm kho + giao hàng; khách gọi điện/chat đặt hàng | interview chủ shop (`SF-3` elicitation) |
+| Process | khách nhắn order → chủ shop chạy ra kho đếm → báo còn/hết → nếu còn thì ghi sổ → giao; nếu hết thì gọi xin lỗi | observation 1 buổi sáng tại shop |
+| Information | order ghi sổ tay, stock đếm thủ công, không có lịch sử order/stock movement | artifact: sổ ghi chép của chủ shop |
+| Technology | điện thoại + sổ giấy; không có database, không có web | — |
+| Policy/rule | "nếu thiếu 1 món thì hủy cả đơn" là rule ngầm, chưa viết ra; không có policy return | interview chủ shop |
+| Performance | ~3 lần/tháng order vượt stock; mỗi lần mất ~15 phút gọi điện; 1 khách cancel/lần | log cuộc gọi của chủ shop |
+
+**Gap → Future capability → Transition:**
+
+| Gap (phân loại) | Evidence | Future capability | Transition need |
+|---|---|---|---|
+| Capability: không kiểm tra stock khi nhận order | 3 lần/tháng bán vượt stock | hệ thống check stock real-time, reject nếu thiếu (`SF-11`) | map danh sách sản phẩm hiện có vào DB `SF-10` |
+| Process: không có trạng thái đơn hàng | khách phải gọi hỏi "đơn tới đâu rồi" | khách xem được trạng thái order (Pending Payment → Delivered) qua `SF-3` + `SF-5` | train khách quen dùng web thay vì gọi |
+| Data: không lưu lịch sử stock movement | không biết hàng nào nhập khi nào, còn bao nhiêu | `SF-6` inventory management + `SF-7` receive supplier stock có audit trail | nhập stock đầu kỳ từ sổ giấy vào hệ thống |
+| Technology: không có hệ thống | toàn bộ vận hành bằng tay | Spring Boot backend + Vue 3 frontend (MVP) | deploy môi trường test, training 2 nhân viên kho |
+
+**Constraint:** MVP không tích hợp payment gateway thật (`SF-4` dùng mock), không tích hợp đơn vị vận chuyển (`SF-5` cập nhật thủ công). Authentication đơn giản, chưa có RBAC.
+
+**Open question:** dữ liệu sổ ghi chép cũ có cần migrate vào hệ thống không? Owner: chủ shop, hạn trước Sprint 0.
 
 ## 5. Anti-patterns
 

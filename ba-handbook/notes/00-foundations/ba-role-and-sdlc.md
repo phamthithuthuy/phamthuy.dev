@@ -152,6 +152,33 @@ Các hướng rẽ nhánh từ Middle/Senior:
 
 Điểm cốt lõi: muốn đi xa hơn vai trò "lấy và đặc tả yêu cầu", chỉ giỏi chuyên môn là chưa đủ — phải xây thêm bộ kỹ năng quản lý hoặc chiều sâu domain.
 
+### Running case: ShopFlow
+
+Dự án ShopFlow (Epic `SF-1`) minh hoạ stakeholder map và artifact SDLC rõ qua 3 role thực tế:
+
+**Bản đồ stakeholder ShopFlow** (theo §2):
+
+| Nhóm | Ai | Vai trò trong ShopFlow |
+|---|---|---|
+| **External** | Khách hàng | browse product + tạo order + payment mô phỏng (story `SF-2`, `SF-3`, `SF-4`) |
+| | Chủ shop | theo dõi delivery, xử lý return, nhận alert low stock (story `SF-5`, `SF-8`, `SF-9`) |
+| **Internal** | Nhân viên kho | quản lý stock, nhập hàng từ supplier, cập nhật delivery, xử lý return (story `SF-5`, `SF-6`, `SF-7`, `SF-8`) |
+| | Developer / Tester | nhận AC từ mỗi story; QA scenarios riêng biệt (`SF-13`, `SF-16`, `SF-19`, `SF-39`, `SF-42`) |
+
+Dấu hiệu "BA non tay" kiểm được: nếu BA chỉ làm việc với Chủ shop (external) mà quên Nhân viên kho (internal), các luồng nhập hàng (`SF-7`) và điều chỉnh stock (`SF-15`) sẽ thiếu pre-condition và exception → lộ ra muộn ở sprint sau.
+
+**BA qua các pha SDLC trong ShopFlow** (theo §3):
+
+| Pha | BA làm gì trong ShopFlow | Artifact đầu ra |
+|---|---|---|
+| Discovery | khơi gợi 8 luồng nghiệp vụ + 3 stakeholder từ Epic `SF-1` | requirement đã làm rõ, stakeholder register |
+| Phân tích | chọn model cho từng câu hỏi: Use Case cho order flow, State Machine cho order status ("Pending Payment → Paid → Preparing → Shipped → Delivered") | [[use-case-diagram\|Use Case Diagram]], domain model `SF-10` |
+| Đặc tả | viết story + AC cho `SF-2..SF-9`; mỗi story có scenario happy path + failure path; tồn kiểm tra stock validation `SF-11` atomic (reject toàn bộ order nếu thiếu) | User Story + AC, SRS-lite |
+| Thiết kế | wireframe luồng checkout + catalog (Vue 3 + shadcn-vue `SF-38`, `SF-43`) | Wireframe catalog, order form |
+| Kiểm thử / UAT | dựng QA scenario cho từng story (`SF-13`, `SF-16`, `SF-19`, `SF-39`, `SF-42`) | test case theo AC, UAT scenario |
+
+Toàn bộ artifact này truy được ngược về Epic `SF-1`: shop cần vận hành luồng bán hàng + kiểm soát tồn kho — mỗi pha SDLC đều tạo ra một mảnh đặc tả để hiện thực mục tiêu đó.
+
 ---
 
 ## 5. Anti-patterns

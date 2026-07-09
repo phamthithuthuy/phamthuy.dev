@@ -54,13 +54,25 @@ Xét knowledge type, số participant, conflict/sensitivity, quyền access, mat
 của discovery, time/cost, decision cần tạo và mức confidence cần có. Technique
 chính phải được bù bias bằng nguồn thứ hai.
 
-Running case:
+### Running case: ShopFlow
 
-| Unknown | Technique chính | Nguồn bù |
-|---|---|---|
-| email bị kẹt ở bước nào? | log/document analysis | interview Procurement |
-| Manager và Finance hiểu threshold ra sao? | workshop | policy analysis |
-| requester thật sự kiểm trạng thái thế nào? | observation/interview | survey sau exploratory research |
+Áp decision matrix (§2) cho các unknown của ShopFlow `SF-1`:
+
+| Unknown | Technique chính | Lý do chọn | Nguồn bù / triangulate |
+|---|---|---|---|
+| 8 luồng nghiệp vụ của shop là gì? | **Workshop** với chủ shop | cần shared model về toàn bộ flow bán hàng + tồn kho | document analysis: sổ ghi chép order của chủ shop |
+| Nhân viên kho thực tế nhập hàng ra sao? | **Observation** 1 buổi sáng lúc nhận supplier | behavior thật khác quy trình được kể (§1) — chủ shop nói "nhập hàng đơn giản" nhưng observation lộ ra supplier giao thiếu/muộn | interview nhân viên kho sau observation |
+| Stock validation rule: reject toàn bộ hay từng phần? | **1:1 Interview** chủ shop | quyết định kinh doanh nhạy cảm, không nên thảo luận trước nhân viên | document analysis: sổ ghi chép 3 tháng gần nhất để kiểm pattern |
+| Bao nhiêu khách hàng muốn tự xem trạng thái đơn? | **Survey** (sau exploratory) | cần đo prevalence — không phải mọi khách đều muốn tự check | sample interview 3-5 khách quen để thiết kế câu survey |
+| Payment mock flow có đủ cho MVP? | **Prototype** (low-fi wireframe `SF-38`) | cần feedback sớm về flow trước khi dev | workshop playback với chủ shop + 1 nhân viên kho |
+
+**Ví dụ áp cây quyết định (§1) cho `SF-7 Receive Supplier Stock`:**
+
+1. "Cần thấy hành vi thực tế?" → Có → **Observation** (nhân viên kho nhận hàng supplier)
+2. Triangulate: **Interview** nhân viên kho sau observation để hiểu exception (hàng hỏng, thiếu, sai mã)
+3. Output: workflow thực tế có bước kiểm hàng + đối chiếu bill — flow này không có trong mô tả ban đầu của chủ shop
+
+Bài học: nếu chỉ workshop với chủ shop, BA sẽ bỏ sót bước "kiểm hàng" trong `SF-7` vì chủ shop không trực tiếp làm. Observation + triangulate interview phát hiện exception "hàng hỏng khi nhận" → thêm AC vào `SF-7`.
 
 ## 4. Anti-patterns
 

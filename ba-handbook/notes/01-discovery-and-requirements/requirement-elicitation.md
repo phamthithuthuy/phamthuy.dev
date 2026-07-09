@@ -124,6 +124,33 @@ BA không chép nguyên câu thành requirement. Sau probing và kiểm tra mẫ
 - Stakeholder đã playback/confirm phần liên quan chưa?
 - Output đã đủ để analysis tiếp mà không tự đoán chưa?
 
+### Running case: ShopFlow
+
+Toàn bộ discovery của ShopFlow (Epic `SF-1`) đi đúng vòng elicitation ở §1:
+
+| Bước vòng lặp | ShopFlow thực tế |
+|---|---|
+| Objective & unknowns | làm rõ 8 luồng nghiệp vụ bán hàng + kiểm soát tồn kho cho shop nhỏ; unknown lớn nhất: "liệu có cần tích hợp payment/shipper thật không?" |
+| Stakeholder, source, technique | 3 nhóm stakeholder (chủ shop, nhân viên kho, khách hàng); chọn interview 1-1 cho chủ shop + observation cách nhân viên kho kiểm hàng thủ công |
+| Conduct + capture | ghi nhận fact, pain point, rule — không chép solution idea thành requirement |
+| Synthesize | output là 8 User Story `SF-2..SF-9`, domain model `SF-10`, constraint "không payment/shipper thật" |
+| Playback | mỗi story được chủ shop xác nhận AC trước khi vào sprint |
+
+**Áp taxonomy §2 cho một buổi elicitation `SF-3 Create Customer Order`:**
+
+| Loại | Ghi nhận từ chủ shop |
+|---|---|
+| Fact | "tháng trước 3 lần khách order 5 mà kho còn 2, phải gọi xin lỗi" |
+| Pain point | bán vượt stock gây mất uy tín, tốn thời gian gọi điện |
+| Requirement | hệ thống phải kiểm tra stock thực tế trước khi nhận order |
+| Business rule | nếu một item trong order thiếu stock, reject toàn bộ order (atomic — `SF-11`) |
+| Solution idea | "cho cái nút kiểm tra hàng trước khi bấm đặt" |
+| Assumption | stock trong database luôn đồng bộ với stock thực tế |
+| Constraint | MVP không tích hợp real-time inventory sync |
+| Open question | ai được phép override stock validation? — gán cho chủ shop, hạn trước Sprint 2 |
+
+Bài học: nếu BA chép nguyên "cho cái nút kiểm tra hàng" thành requirement thì dev sẽ build một nút nhưng bỏ qua rule atomic reject `SF-11` — bug lộ ra khi khách order 3 mặt hàng, 1 mặt thiếu stock.
+
 ## References
 
 - [IIBA — BABOK Guide](https://www.iiba.org/career-resources/a-business-analysis-professionals-foundation-for-success/babok/) — khung tham chiếu cho Elicitation and Collaboration và các knowledge area liên quan.

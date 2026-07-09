@@ -86,23 +86,24 @@ Tất cả file là **synthesized practical note**, áp dụng template tại
 
 ## 4. Running case dùng xuyên nhóm
 
-Tiếp tục case giả định của nhóm 01:
+Tiếp tục case ShopFlow từ nhóm 01 — dự án bán hàng online cho shop nhỏ (Epic `SF-1`):
 
-> **Quy trình yêu cầu mua thiết bị nội bộ:** Employee gửi request; Manager,
-> Procurement, Finance và IT phối hợp duyệt. Requester cần biết status và action
-> còn thiếu. Corporate Identity, Finance Budget Service và Vendor Portal là hệ
-> thống ngoài boundary của solution đang phân tích.
+> **ShopFlow:** Chủ shop cần hệ thống quản lý bán hàng + tồn kho online. Khách hàng
+> browse catalog, tạo order, theo dõi trạng thái. Nhân viên kho quản lý stock, nhập
+> hàng từ supplier, cập nhật delivery. Chủ shop xử lý return và nhận alert low stock.
+> Boundary: không tích hợp payment gateway thật (`SF-4` mock), không tích hợp đơn vị
+> vận chuyển (`SF-5` manual update). Tech stack: Spring Boot 3.3.x, Java 21, Vue 3.
 
-Artifact đầu vào từ Discovery:
+Artifact đầu vào từ Discovery (nhóm 01):
 
-- objective: giảm status inquiry và rework do thiếu dữ liệu;
-- future capability: request ID, state/owner rõ, validation trước handoff;
-- constraint: corporate identity và audit;
-- assumption/open question phải tiếp tục hiển thị, không tự biến thành rule;
-- option được chọn chỉ là giả định cho case học tập, không phải decision dự án thật.
+- objective: giảm order vượt stock từ 3 lần/tháng xuống 0;
+- future capability: catalog real-time, stock validation atomic, order status tracking;
+- 8 User Story `SF-2..SF-9`, domain model `SF-10` (Product, Customer, Order, OrderItem, Payment, InventoryItem, StockMovement, ReturnRequest);
+- constraint: không payment/shipper thật; authentication đơn giản MVP;
+- assumption cần tiếp tục hiển thị: stock DB đồng bộ với thực tế; khách sẵn sàng dùng web.
 
-Mỗi note chỉ bổ sung một view; terminology, actor, entity, state và rule phải nhất
-quán giữa 18 note.
+Mỗi note chỉ bổ sung một view; actor (Khách hàng, Chủ shop, Nhân viên kho), entity,
+state và rule phải nhất quán giữa 18 note.
 
 ## 5. Reading path và dependency
 

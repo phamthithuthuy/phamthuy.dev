@@ -68,14 +68,35 @@ và “trường hợp nào không theo flow”.
 
 Quote là evidence participant đã nói câu đó, chưa phải fact của toàn population.
 
-Running case sau synthesis:
+### Running case: ShopFlow
 
-- **Fact:** 6/10 case participant cung cấp thiếu mã ngân sách ở email đầu.
-- **Pain point:** Procurement phải hỏi lại; requester không biết đang chờ mình.
-- **Requirement candidate:** requester xem được action còn thiếu và owner hiện tại.
-- **Solution idea:** notification tự động sau 24 giờ.
-- **Assumption:** timestamp email phản ánh đúng thời gian vào queue.
-- **Open question:** Finance xác nhận lúc request chính thức vào queue.
+Interview chủ shop cho story `SF-3 Create Customer Order` — áp funnel §2:
+
+**Interview package tối thiểu:**
+- Objective: hiểu cách chủ shop xử lý order hiện tại, xác nhận rule stock validation, phát hiện exception
+- Participant rationale: chủ shop là người duy nhất biết rule "khi nào từ chối order" và hậu quả của bán vượt stock
+- Question guide: mở bằng "kể lần gần nhất có khách order mà kho không đủ hàng", probe "lúc đó chị làm gì?", "có trường hợp nào vẫn bán dù thiếu một mục không?"
+
+**Output sau synthesis (theo taxonomy §4):**
+
+| Loại | Ghi nhận |
+|---|---|
+| Quote | "Có lần khách order 5 món, kho còn 3, tui phải gọi nói thiếu 2 món — khách cancel luôn" |
+| Fact | 3 lần/tháng xảy ra order vượt stock; mỗi lần mất ~15 phút gọi điện |
+| Pain point | mất đơn vì không biết stock thực tế lúc nhận order |
+| Requirement candidate | hệ thống phải check stock real-time và reject nếu thiếu (`SF-11`) |
+| Business rule | nếu một item thiếu → reject toàn bộ order, không bán lẻ từng món (`SF-3` AC) |
+| Solution idea | "cho cái đèn xanh/đỏ cạnh mỗi món hàng" |
+| Assumption | stock database luôn khớp stock thực tế |
+| Open question | nhân viên kho có được phép override stock validation không? — Owner: chủ shop, hạn trước Sprint 1 planning |
+
+**So sánh câu hỏi tốt vs câu hỏi yếu (§3) trong interview này:**
+
+| Tránh (hỏi opinion) | Hỏi lại (bám behavior) |
+|---|---|
+| "Chị muốn hệ thống quản lý order thế nào?" | "Lần gần nhất chị nhận order qua điện thoại, chị ghi vào đâu? Mất bao lâu?" |
+| "Có cần kiểm tra tồn kho không?" | "Có lần nào chị nhận order xong mới biết thiếu hàng không? Lúc đó chị xử lý ra sao?" |
+| "Chị muốn giao diện tạo đơn thế nào?" | "Chị cần biết thông tin gì trước khi nói 'ok' với khách?" |
 
 ## 5. Anti-patterns
 

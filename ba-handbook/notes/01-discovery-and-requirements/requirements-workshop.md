@@ -72,16 +72,27 @@ sẽ giấu risk.
 Silent-first giảm anchoring vào người nói đầu. Round-robin hữu ích nhưng không
 được ép participant tiết lộ điều nhạy cảm.
 
-## 4. Running case
+## 4. Running case: ShopFlow
 
-Manager nghĩ mọi request phải qua họ; Finance nói request dưới 5 triệu có thể
-auto-check budget.
+**Workshop Kick-off ShopFlow — Agenda 90 phút (§3) cho Epic `SF-1`:**
 
-- **Fact:** policy FIN-04 có threshold 5 triệu, Finance sở hữu policy.
-- **Assumption:** bỏ Manager dưới threshold không ảnh hưởng accountability.
-- **Open question:** Manager owner xác nhận delegation rule.
-- **Decision:** chưa chốt future flow; timebox validation 3 ngày thay vì vote.
-- **Dissent:** Procurement lo exception mua thiết bị đặc thù chưa được bao phủ.
+| Block | Thời gian | Hoạt động | ShopFlow outcome |
+|---|---|---|---|
+| 1. Outcome & scope | 0–10 | BA nêu: "hết buổi này có danh sách luồng nghiệp vụ + stakeholder + constraint" | agreed: 8 luồng, 3 nhóm stakeholder, boundary "không payment/shipper thật" |
+| 2. Silent review | 10–25 | mỗi participant (chủ shop, nhân viên kho) viết ra workflow hiện tại lên sticky note | chủ shop viết "khách gọi → chạy ra kho đếm → báo giá → giao"; nhân viên kho viết "nhận hàng supplier → đếm → ghi sổ → xếp lên kệ" |
+| 3. Exception & concern | 25–45 | từng role nêu exception và nỗi đau | chủ shop: "có lúc đang giao hàng không nghe máy, khách gọi 3 lần không được → cancel"; nhân viên kho: "supplier giao thiếu, sổ với thực tế lệch" |
+| 4. Cluster & classify | 45–60 | BA nhóm conflict; tách fact/assumption | assumption "stock database luôn đúng" bị nhân viên kho phản bác: "mỗi lần kiểm kho đều lệch 1-2 món" → chuyển thành requirement `SF-6` + `SF-15` |
+| 5. Option evaluation | 60–75 | đánh giá "có cần mobile app không?" | decision: mobile-responsive web, không native app — lý do: MVP, 2 nhân viên kho dùng điện thoại lúc giao hàng |
+| 6. Decision | 75–85 | chủ shop (decision owner) chốt | 8 story được approve vào backlog; `SF-5` Delivery Status ưu tiên cao nhất (pain point của khách) |
+| 7. Playback | 85–90 | BA playback: decision, open question, owner | 3 open question: (1) ai override stock validation? (2) return window bao lâu? (3) dữ liệu sổ cũ có migrate không? — mỗi câu có owner + deadline |
+
+**Xử lý dynamics (§5) trong workshop này:**
+
+| Tình huống thực tế | Intervention của BA |
+|---|---|
+| Chủ shop nói liên tục 15 phút về "hồi xưa làm sao" | BA: "Cảm ơn chị, giờ mình dành 3 phút silent writing — mỗi người ghi 3 workflow chính ra giấy" → chuyển sang block 2 |
+| Nhân viên kho im lặng vì có chủ shop | BA thu thập sticky note riêng của nhân viên kho, đọc lên không ghi tên → lộ ra exception "supplier giao thiếu" mà chủ shop không biết |
+| Tranh luận "có cần native app không" | BA quay về criteria: "MVP 1 tháng, 2 người dùng chính — mobile web có đủ không?" → decision owner (chủ shop) chốt |
 
 ## 5. Xử lý dynamics
 

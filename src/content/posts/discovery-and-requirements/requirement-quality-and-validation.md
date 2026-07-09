@@ -1,6 +1,6 @@
 ---
 title: "Requirement Quality và Validation cho BA"
-pubDatetime: 2026-06-18T18:14:08.198Z
+pubDatetime: 2026-06-19T07:11:15+00:00
 description: "Note này giúp BA kiểm tra requirement được viết đủ tốt và đúng nhu cầu trước handoff. Verification hỏi “mô tả có chất lượng không”; validation hỏi “đây có phải…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false
@@ -76,7 +76,36 @@ Vấn đề: “nhanh”, “người dùng”, event và channel chưa rõ; cũ
 
 Note không bịa threshold để làm câu trông “testable”. Nó để lộ gap có owner.
 
-## 4. Chọn validation technique
+### Running case: ShopFlow
+
+**Áp quality criteria (§2) cho một requirement trong ShopFlow `SF-3`:**
+
+| Criterion | Test với requirement “hệ thống phải kiểm tra stock trước khi nhận order” |
+|---|---|
+| Necessary | ✅ Trace về objective Epic `SF-1`: giảm order vượt stock từ 3 lần/tháng xuống 0 |
+| Atomic | ✅ Một obligation duy nhất: check stock; không trộn với “và gửi email xác nhận” |
+| Clear | ⚠️ “kiểm tra stock” chưa rõ: check tại thời điểm add to cart hay lúc submit? → làm rõ: check lúc submit |
+| Feasible | ✅ Có `SF-10` domain model với InventoryItem; backend check được |
+| Consistent | ⚠️ Cần kiểm tra không xung đột với `SF-15` (manual stock adjustment sau kiểm kho) — nếu stock điều chỉnh thủ công giữa lúc check và commit? → thêm rule atomic reserve `SF-11` |
+| Testable | ✅ `SF-13` QA scenario: tạo order với 5 items, kho chỉ còn 3 → expect reject |
+| Traceable | ✅ Source: interview chủ shop; downstream: `SF-11` Stock Validation, `SF-13` QA |
+
+**Sửa requirement mơ hồ → rõ (theo pattern §3):**
+
+| Trước (mơ hồ) | Sau review (có context + measure) |
+|---|---|
+| “Hệ thống phải kiểm tra hàng trước khi bán” | Khi khách submit order (`SF-3`), hệ thống phải kiểm tra `availableStock` của từng `OrderItem` trong một transaction. Nếu bất kỳ item nào có `availableStock < quantity`, reject toàn bộ order với message “Sản phẩm [tên] chỉ còn [availableStock]” — không bán lẻ từng món. (AC `SF-11`) |
+| “Hệ thống phải hiển thị trạng thái đơn hàng” | Sau khi order được tạo, khách hàng và chủ shop phải xem được trạng thái hiện tại và lịch sử chuyển trạng thái (timestamp + actor). Các trạng thái: Pending Payment → Paid → Preparing → Shipped → Delivered. (`SF-5` AC) |
+| “Phải bảo mật” | Payment mock (`SF-4`) không được lưu hoặc log bất kỳ thông tin thẻ nào. Chỉ log event “payment_attempt” với orderId, amount, status (success/failure), timestamp. |
+
+**Validation technique cho ShopFlow (theo §4):**
+
+| Cần validate | Technique | ShopFlow áp dụng |
+|---|---|---|
+| wording/rule của `SF-11` atomic stock | walkthrough + concrete examples | demo 3 scenario: đủ stock, thiếu 1 item, thiếu tất cả — chủ shop xác nhận behavior |
+| flow order status transition | state machine simulation | chạy từng transition Pending Payment→Paid→...; phát hiện thiếu transition “cancelled” sau Pending Payment |
+| interaction catalog + order form | low-fi prototype `SF-38`, `SF-43` | khách hàng sample thử browse + đặt hàng; phát hiện nút “Đặt hàng” quá nhỏ trên mobile |
+| measurable acceptance | acceptance thinking | mỗi story có 2-3 AC testable; `SF-13` QA checklist cover đủ happy + failure path |
 
 | Cần validate | Technique |
 |---|---|
