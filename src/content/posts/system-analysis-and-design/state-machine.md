@@ -1,5 +1,5 @@
 ---
-title: "State Diagram (Biểu đồ Trạng thái)"
+title: "State Machine Diagram cho BA"
 pubDatetime: 2026-07-10T05:12:19+00:00
 description: "Note này hướng dẫn vẽ UML State Machine Diagram. Nó trả lời câu hỏi: \"Một thực thể (Entity) sinh ra như thế nào, sống qua những trạng thái nào, bị tác động bởi…"
 tags: ["ba", "system-analysis-and-design"]
@@ -19,6 +19,8 @@ Một State Diagram không mô tả nhiều đối tượng (như Sequence), nó
 ```plantuml Ký hiệu cơ bản State Diagram
 @startuml
 skinparam defaultFontSize 14
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
 
 [*] --> Active : Tạo mới tài khoản
 Active --> Locked : Nhập sai pass 5 lần
@@ -40,6 +42,8 @@ Dưới đây là vòng đời hoàn chỉnh của một Thực thể **Order** 
 ```plantuml ShopFlow Order Lifecycle
 @startuml
 skinparam defaultFontSize 15
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
 hide empty description
 
 [*] --> Draft : Khách bấm Checkout
@@ -84,25 +88,44 @@ Khi BA bàn giao State Diagram này:
 2. **Backend Dev:** Sẽ viết code chặn (Validation) API. Nếu ai đó cố tình bắn API đổi status từ `Draft` thẳng sang `Delivered`, hệ thống sẽ văng lỗi 400 Bad Request.
 3. **QA/Tester:** Sẽ viết Test Case cho các trạng thái không hợp lệ (Negative Test).
 
-## 4. Anti-pattern (Lỗi sai phổ biến)
+## 4. Anti-patterns
 
-*   **Vẽ nhiều Object trong 1 sơ đồ:** Vẽ Trạng thái Đơn hàng xen lẫn Trạng thái Sản phẩm. *Giải pháp:* Tách ra. Mỗi sơ đồ chỉ 1 Entity.
-*   **Nhầm Event với State:** Đặt tên trạng thái là "Gửi email cho khách" (Đây là hành động, không phải trạng thái). Trạng thái phải là danh từ hoặc tính từ: "Đã gửi Email" hoặc "Chờ xác nhận".
-*   **Thiếu Guard Condition:** Dẫn đến lỗ hổng logic nghiệp vụ (Vd: Hoàn trả bất kỳ lúc nào thay vì [Dưới 7 ngày]).
+| Anti-pattern | Vì sao nguy hiểm | Cách sửa |
+|---|---|---|
+| **Vẽ nhiều Object trong 1 sơ đồ** | Gây nhầm lẫn logic, dev không biết đang code cho thực thể nào | Mỗi sơ đồ chỉ 1 Entity. Tách State của Order và Product ra. |
+| **Nhầm Event với State** | Sai bản chất UML, gây bối rối cho team | Trạng thái là Danh từ/Tính từ (Vd: "Đã gửi Email"). Hành động là Động từ (Vd: "Gửi Email"). |
+| **Thiếu Guard Condition** | Lỗ hổng logic (Vd: Hoàn trả bất kỳ lúc nào thay vì dưới 7 ngày) | Luôn gắn điều kiện `[Guard]` cho các event nhạy cảm về thời gian/quyền. |
 
-## 5. Checklist Review
+## 5. Checklist nhanh
 
-- [ ] Sơ đồ chỉ focus vào một thực thể (Entity) duy nhất chưa?
-- [ ] Tên các trạng thái là danh từ/tính từ, chứ không phải động từ (hành động)?
-- [ ] Có đường nào đi từ Trạng thái Cuối (`[*]`) ngược lại vòng đời không? (Nếu có là sai UML).
-- [ ] Các chuyển tiếp nhạy cảm đã gắn Điều kiện bảo vệ `[Guard]` chưa?
+Trước khi giao sơ đồ cho Dev, hãy kiểm tra:
 
-## 6. References
+- Sơ đồ chỉ focus vào một thực thể (Entity) duy nhất chưa?
+- Tên các trạng thái là danh từ/tính từ, chứ không phải động từ (hành động)?
+- Có đường nào đi từ Trạng thái Cuối (`[*]`) ngược lại vòng đời không? (Nếu có là sai UML).
+- Các chuyển tiếp nhạy cảm đã gắn Điều kiện bảo vệ `[Guard]` chưa?
+
+---
+
+## Mini-glossary
+
+- **State Machine Diagram:** biểu đồ trạng thái, dùng mô tả vòng đời của một thực thể (Entity) duy nhất.
+- **State (Trạng thái):** tình trạng của đối tượng tại một thời điểm (hình chữ nhật bo tròn).
+- **Event (Sự kiện):** hành động kích hoạt việc chuyển đổi trạng thái (chữ trên mũi tên).
+- **Guard (Điều kiện bảo vệ):** điều kiện phải thỏa mãn để Event có tác dụng (trong ngoặc vuông `[]`).
+- **Choice (Điểm rẽ nhánh):** điểm một Event có thể dẫn ra nhiều State khác nhau tùy Guard.
+
+## References
 
 - *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 14 (State Machines).
 - *BABOK Guide v3*, Section 10.44 (State Modelling).
 
-## 7. Related
+## Internal Sources
+
+- UML State Machine sample
+- Study Map & Source Mapping
+
+## Related
 
 - Bối cảnh sự kiện: [Sequence Diagram](/posts/system-analysis-and-design/sequence-diagram)
 - Quản lý dữ liệu: Data Modeling / ERD

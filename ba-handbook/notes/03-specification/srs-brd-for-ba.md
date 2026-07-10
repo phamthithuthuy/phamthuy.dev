@@ -1,4 +1,4 @@
-# SRS và BRD trong phân tích nghiệp vụ
+# SRS và BRD cho BA
 
 > Note này làm rõ định nghĩa, sự khác biệt và cấu trúc của BRD (Business Requirements Document) và SRS (Software Requirements Specification). 
 
@@ -72,20 +72,47 @@ Khác với Waterfall (viết xong SRS 100 trang mới code), trong Agile:
 *   Thường được lưu trên **Confluence / Wiki** thay vì file Word.
 *   Được bẻ nhỏ thành các Epic và User Story (Sống trên Jira). Phần "System Features" (mục 3) biến thành Product Backlog.
 
-## 4. Checklist Review SRS
+## 4. Anti-patterns
 
-- [ ] Có định nghĩa rõ ràng Out of Scope (Những thứ hệ thống không làm) chưa?
-- [ ] Phần System Features đã bao phủ toàn bộ các Use Case / User Story chưa?
-- [ ] Đã có yêu cầu Phi chức năng (NFR) chưa (thường hay bị quên)?
-- [ ] Có kèm theo Wireframe hoặc Link tới thiết kế để minh họa không?
-- [ ] Các Business Rules (quy tắc tính toán giảm giá, tính tồn kho) đã được mô tả không mâu thuẫn nhau chưa?
+| Anti-pattern | Vì sao nguy hiểm | Cách sửa |
+|---|---|---|
+| **Lẫn lộn Business Need và System Feature** | Làm tài liệu lan man, code không được | Tách bạch: BRD (Why/What - Business), SRS (How - System). |
+| **Bỏ quên NFR (Phi chức năng)** | App chạy được nhưng sập khi đông người dùng hoặc bị hack | Luôn có section liệt kê NFR (Performance, Security, Availability). |
+| **Viết SRS rồi "đóng băng" luôn** | Yêu cầu đổi nhưng tài liệu lỗi thời, Dev code sai | Trong Agile, duy trì SRS trên Wiki để cập nhật liên tục như tài liệu sống. |
+| **Thiếu Glossary (Từ điển thuật ngữ)** | BA, Dev, Khách hàng hiểu sai thuật ngữ của nhau | Định nghĩa rõ mọi thuật ngữ, từ viết tắt ở đầu tài liệu. |
 
-## 5. References
+## 5. Checklist nhanh
+
+Trước khi trình bày/bàn giao SRS, hãy kiểm tra:
+
+- Có định nghĩa rõ ràng Out of Scope (Những thứ hệ thống không làm) chưa?
+- Phần System Features đã bao phủ toàn bộ các Use Case / User Story chưa?
+- Đã có yêu cầu Phi chức năng (NFR) chưa (thường hay bị quên)?
+- Có kèm theo Wireframe hoặc Link tới thiết kế để minh họa không?
+- Các Business Rules (quy tắc tính toán giảm giá, tính tồn kho) đã được mô tả không mâu thuẫn nhau chưa?
+
+---
+
+## Mini-glossary
+
+- **BRD (Business Requirements Document):** tài liệu yêu cầu nghiệp vụ, tập trung vào bài toán kinh doanh.
+- **SRS (Software Requirements Specification):** đặc tả yêu cầu phần mềm, tập trung vào cách hệ thống giải quyết bài toán.
+- **NFR (Non-Functional Requirements):** yêu cầu phi chức năng (bảo mật, hiệu năng, khả năng mở rộng).
+- **Scope (Phạm vi):** ranh giới của dự án (những gì sẽ làm và không làm).
+- **Business Rule:** quy tắc nghiệp vụ/kinh doanh ràng buộc hệ thống.
+
+## References
 
 - *ISO/IEC/IEEE 29148:2018*, Systems and software engineering — Life cycle processes — Requirements engineering.
 - *BABOK Guide v3*, Section 10.47 (Use Cases and Scenarios) - Role of Specs.
 
-## 6. Related
+## Internal Sources
+
+- [[collections/specification/001 BRD-Sample.pdf|BRD sample]]
+- [[collections/specification/002 SRS-Sample.pdf|SRS sample]]
+- [[mapping/README|Study Map & Source Mapping]]
+
+## Related
 
 - Đặc tả kịch bản: [[use-case-diagram|Use Case Diagram]]
 - Đặc tả yêu cầu người dùng: [[user-story-and-acceptance-criteria|User Story và AC]]

@@ -1,4 +1,4 @@
-# Sequence Diagram (Biểu đồ Tuần tự)
+# Sequence Diagram cho BA
 
 > Note này hướng dẫn cách vẽ UML Sequence Diagram. Nó là bước zoom sâu nhất vào kỹ thuật, trả lời câu hỏi: "Các thành phần (Components) hoặc API gọi nhau theo trình tự thời gian nào, dữ liệu truyền đi là gì?"
 
@@ -13,6 +13,8 @@ Trước khi phân tích hệ thống lớn, hãy nắm chắc 3 nét vẽ cơ b
 ```plantuml Phân biệt các loại Message
 @startuml
 skinparam defaultFontSize 14
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
 
 participant "Client (App)" as App
 participant "Server (API)" as API
@@ -39,6 +41,8 @@ note right: Dùng mũi tên nét đứt/hở.\nAPI gửi xong đi làm việc kh
 ```plantuml ShopFlow VNPay Integration Sequence
 @startuml
 skinparam defaultFontSize 14
+skinparam maxMessageSize 200
+skinparam wrapWidth 200
 autonumber
 
 actor "Khách hàng" as User
@@ -95,25 +99,44 @@ deactivate VNPay
 *   **loop:** Vòng lặp. Rất quan trọng khi BA định nghĩa cơ chế Retry (thử lại) khi gọi API bên thứ 3 thất bại.
 *   **opt (Optional):** Chỉ xảy ra nếu thỏa một điều kiện nào đó (If không có Else).
 
-## 3. Anti-pattern (Lỗi sai phổ biến)
+## 3. Anti-patterns
 
-*   **Vẽ Sequence Diagram cho UI:** Mô tả Khách bấm nút A, màn hình chuyển sang màu X, hiện popup Y. *Sai hoàn toàn!* Đó là việc của Wireframe hoặc UI Flow. Sequence dùng để mô tả **Data / Tương tác ngầm**.
-*   **Quên xử lý Timeout / Lỗi:** Chỉ vẽ đường Happy Path (Đường màu hồng). Nếu API thứ 3 chết thì hệ thống mình treo luôn? BA phải vẽ cả nhánh Else/Timeout để Dev xử lý.
-*   **Code hóa sơ đồ:** Viết thẳng tên biến, tên hàm SQL (`SELECT * FROM...`) vào mũi tên. Hãy giữ nó ở mức Component/API Contract.
+| Anti-pattern | Vì sao nguy hiểm | Cách sửa |
+|---|---|---|
+| **Vẽ Sequence cho UI** | Lạc đề, thừa thãi, không giúp gì cho Backend | Dùng Wireframe cho UI. Sequence chỉ vẽ Tương tác ngầm / Data |
+| **Quên xử lý Timeout/Lỗi** | Hệ thống sẽ treo nếu API thứ 3 chết (Chỉ vẽ Happy Path) | Dùng frame `alt` để bọc nhánh Exception / Timeout |
+| **Code hóa sơ đồ** | Khó đọc, đi quá sâu vào SQL nội bộ thay vì Contract | Mô tả message ở mức Component/API Contract (Vd: Check Stock) thay vì `SELECT *` |
 
-## 4. Checklist Review 
+## 4. Checklist nhanh
 
-- [ ] Các mũi tên có phân biệt rõ Sync (Đồng bộ) và Async (Bất đồng bộ) không?
-- [ ] Lời gọi API (Mũi tên đặc) đã có lời hồi đáp (Return - Mũi tên đứt) chưa?
-- [ ] Các trường hợp hệ thống ngoài bị lỗi (Timeout, 500 Error) đã có nhánh `alt` xử lý chưa?
-- [ ] Đã đánh số thứ tự (`autonumber`) để dễ thảo luận trong meeting chưa?
+Trước khi giao Sequence Diagram cho Dev, hãy kiểm tra:
 
-## 5. References
+- Các mũi tên có phân biệt rõ Sync (Đồng bộ) và Async (Bất đồng bộ) không?
+- Lời gọi API (Mũi tên đặc) đã có lời hồi đáp (Return - Mũi tên đứt) chưa?
+- Các trường hợp hệ thống ngoài bị lỗi (Timeout, 500 Error) đã có nhánh `alt` xử lý chưa?
+- Đã đánh số thứ tự (`autonumber`) để tiện thảo luận trong meeting chưa?
+
+---
+
+## Mini-glossary
+
+- **Sequence Diagram:** biểu đồ tuần tự, tập trung vào trình tự gọi hàm/API theo thời gian.
+- **Lifeline (Đường đời):** đường nét đứt dọc dưới mỗi actor/component, thể hiện thời gian sống.
+- **Sync message:** gọi đồng bộ, phải chờ phản hồi mới chạy tiếp (mũi tên đặc).
+- **Async message:** gọi bất đồng bộ, gọi xong đi làm việc khác (mũi tên hở).
+- **Fragment:** khung logic (alt, loop, opt) dùng để bọc rẽ nhánh hoặc vòng lặp.
+
+## References
 
 - *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 17 (Interactions).
 - *BABOK Guide v3*, Section 10.41 (Sequence Diagrams).
 
-## 6. Related
+## Internal Sources
+
+- [[collections/modeling-and-flow/010 BA-39-UML-SD.pdf|UML Sequence sample]]
+- [[mapping/README|Study Map & Source Mapping]]
+
+## Related
 
 - Kịch bản tổng quan: [[use-case-diagram|Use Case Diagram]]
 - Luồng rẽ nhánh: [[activity-diagram|Activity Diagram]]
