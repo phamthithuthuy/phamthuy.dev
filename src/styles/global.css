@@ -22,7 +22,7 @@
 }
 
 @utility max-w-app {
-  @apply max-w-3xl lg:max-w-[80%];
+  @apply max-w-3xl lg:max-w-[70%];
 }
 
 @utility app-layout {
