@@ -1,6 +1,6 @@
 ---
 title: "SRS và BRD trong phân tích nghiệp vụ"
-pubDatetime: 2026-07-10T05:08:34.038Z
+pubDatetime: 2026-07-10T05:08:40+00:00
 description: "Note này làm rõ định nghĩa, sự khác biệt và cấu trúc của BRD (Business Requirements Document) và SRS (Software Requirements Specification)."
 tags: ["ba", "specification"]
 draft: false

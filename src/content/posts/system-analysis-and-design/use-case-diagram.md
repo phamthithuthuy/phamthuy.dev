@@ -1,6 +1,6 @@
 ---
 title: "Use Case Diagram và Use Case Specification"
-pubDatetime: 2026-07-10T05:08:34.038Z
+pubDatetime: 2026-07-10T05:08:40+00:00
 description: "Note này hướng dẫn cách vẽ Use Case Diagram đúng chuẩn UML và viết Use Case Specification (đặc tả text) chi tiết. Nó trả lời câu hỏi: \"Ai (Actor) có thể làm gì…"
 tags: ["ba", "system-analysis-and-design"]
 draft: false
