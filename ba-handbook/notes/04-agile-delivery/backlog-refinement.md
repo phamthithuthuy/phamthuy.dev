@@ -11,6 +11,26 @@ Mở note trước mỗi buổi refinement, khi backlog ngày càng dài nhưng 
 mơ hồ, hoặc khi dev/test liên tục hỏi lại "cái này nghĩa là gì" trong sprint.
 Đọc sau [[user-story-and-acceptance-criteria|User Story & AC]].
 
+```plantuml Backlog Refinement Flow — Từ mường tượng tới sẵn sàng
+@startuml
+skinparam defaultFontSize 15
+actor "PO / BA" as PO
+actor "Dev / QA" as Team
+rectangle "Raw Item\n(Idea/Vague Story)" as Raw #LightPink
+rectangle "Refinement Meeting\n(Thảo luận, chia nhỏ, thêm AC)" as Meet #LightBlue
+rectangle "Ready for Sprint\n(Đạt DoR)" as Ready #LightGreen
+rectangle "Needs More Info\n(BA/PO đi hỏi thêm)" as NeedInfo #LightYellow
+
+PO -> Raw : Đưa lên đầu Backlog
+Raw --> Meet
+Meet <-> Team : Đặt câu hỏi
+Meet --> Ready : Đủ thông tin
+Meet --> NeedInfo : Thiếu requirement
+NeedInfo --> Meet : (Vòng lặp)
+@enduml
+```
+
+
 ## 1. Refinement không phải là sprint planning mini
 
 | Là | Không phải là |

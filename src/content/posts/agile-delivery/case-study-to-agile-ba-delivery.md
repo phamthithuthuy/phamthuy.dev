@@ -1,6 +1,6 @@
 ---
 title: "Từ Case Study ra Backlog Agile cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA đi từ case study thô (mô tả nghiệp vụ, workflow hiện tại, pain point) tới một product backlog có story, AC, sprint slice, priority và story po…"
 tags: ["ba", "agile-delivery"]
 draft: false

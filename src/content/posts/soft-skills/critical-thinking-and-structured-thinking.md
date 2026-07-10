@@ -1,6 +1,6 @@
 ---
 title: "Tư duy phản biện & Có cấu trúc cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA xây dựng khung tư duy để phân tích thông tin trước khi chốt thành requirement: 5W1H, phân biệt fact/assumption/opinion, hypothesis vs causal c…"
 tags: ["ba", "soft-skills"]
 draft: false

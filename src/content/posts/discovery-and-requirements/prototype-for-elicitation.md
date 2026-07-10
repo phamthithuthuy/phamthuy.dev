@@ -1,6 +1,6 @@
 ---
 title: "Prototype cho Elicitation"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA dùng prototype để khai thác feedback về flow và interaction trước khi dev build. Prototype là công cụ elicitation, không phải UI design — mục…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false

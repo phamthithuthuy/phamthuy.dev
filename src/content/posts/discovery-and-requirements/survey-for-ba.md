@@ -1,6 +1,6 @@
 ---
 title: "Survey cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA dùng survey để đo prevalence, segment signal và kiểm tra hypothesis trên sample lớn — sau khi exploratory research đã xác định được dimension…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false

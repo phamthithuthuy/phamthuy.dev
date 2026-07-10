@@ -1,6 +1,6 @@
 ---
 title: "Backlog Refinement cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA chuẩn bị và dẫn backlog refinement hiệu quả: chọn item nào cần refined, xác định ready/not ready, và ghi lại decision mở để sprint sau không l…"
 tags: ["ba", "agile-delivery"]
 draft: false
@@ -15,6 +15,26 @@ draft: false
 Mở note trước mỗi buổi refinement, khi backlog ngày càng dài nhưng story vẫn
 mơ hồ, hoặc khi dev/test liên tục hỏi lại "cái này nghĩa là gì" trong sprint.
 Đọc sau [User Story & AC](/posts/agile-delivery/user-story-and-acceptance-criteria).
+
+```plantuml Backlog Refinement Flow — Từ mường tượng tới sẵn sàng
+@startuml
+skinparam defaultFontSize 15
+actor "PO / BA" as PO
+actor "Dev / QA" as Team
+rectangle "Raw Item\n(Idea/Vague Story)" as Raw #LightPink
+rectangle "Refinement Meeting\n(Thảo luận, chia nhỏ, thêm AC)" as Meet #LightBlue
+rectangle "Ready for Sprint\n(Đạt DoR)" as Ready #LightGreen
+rectangle "Needs More Info\n(BA/PO đi hỏi thêm)" as NeedInfo #LightYellow
+
+PO -> Raw : Đưa lên đầu Backlog
+Raw --> Meet
+Meet <-> Team : Đặt câu hỏi
+Meet --> Ready : Đủ thông tin
+Meet --> NeedInfo : Thiếu requirement
+NeedInfo --> Meet : (Vòng lặp)
+@enduml
+```
+
 
 ## 1. Refinement không phải là sprint planning mini
 

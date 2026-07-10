@@ -1,6 +1,6 @@
 ---
 title: "BA Artifact Templates"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này cung cấp template copy-ready cho các artifact BA thường xuyên tạo ra: User Story, Acceptance Criteria (Gherkin + Checklist), Definition of Ready/Done…"
 tags: ["ba", "templates"]
 draft: false

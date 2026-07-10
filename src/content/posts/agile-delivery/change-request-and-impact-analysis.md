@@ -1,6 +1,6 @@
 ---
 title: "Change Request và Impact Analysis cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA xử lý khi stakeholder muốn đổi requirement hoặc scope sau khi đã bắt đầu build. Không phải mọi thay đổi đều là \"scope creep\" — một số là học t…"
 tags: ["ba", "agile-delivery"]
 draft: false

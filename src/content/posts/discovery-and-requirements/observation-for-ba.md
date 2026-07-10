@@ -1,6 +1,6 @@
 ---
 title: "Observation & Contextual Inquiry cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA dùng observation để thấy hành vi thực tế — \"work-as-done\" — khác với quy trình được kể trong interview. Observation không phải \"ngồi nhìn\"; nó…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false

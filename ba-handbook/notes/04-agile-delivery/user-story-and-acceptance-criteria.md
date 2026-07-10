@@ -11,6 +11,25 @@ refinement, hoặc khi dev/test phàn nàn "AC mơ hồ". Đọc sau
 [[agile-concepts-for-ba|Agile concepts]] và
 [[requirement-elicitation|Requirement Elicitation]] (để có requirement đầu vào).
 
+```plantuml User Story Hierarchy — Từ Epic lớn đến Task nhỏ
+@startuml
+skinparam defaultFontSize 15
+rectangle "Epic\n(Vd: SF-1 Quản lý Bán hàng Online)" as Epic #LightYellow
+rectangle "Feature\n(Vd: Quản lý Đơn hàng)" as Feature #LightBlue
+rectangle "User Story\n(Vd: SF-2 Tạo đơn hàng mới)" as Story1 #LightGreen
+rectangle "User Story\n(Vd: Hủy đơn hàng)" as Story2 #LightGreen
+rectangle "Task\n(Vd: Làm UI form đơn hàng)" as Task1 #LightGray
+rectangle "Task\n(Vd: Viết API lưu Order DB)" as Task2 #LightGray
+
+Epic --> Feature
+Feature --> Story1
+Feature --> Story2
+Story1 --> Task1
+Story1 --> Task2
+@enduml
+```
+
+
 ## 1. User story không phải là solution description
 
 | Đây là story | Đây không phải story |

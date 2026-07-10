@@ -1,6 +1,6 @@
 ---
 title: "Viết rõ ràng cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA viết requirement, AC, email và tài liệu không mơ hồ, không đa nghĩa — sao cho hai người đọc hiểu cùng một ý. Viết rõ ràng không phải tài năng;…"
 tags: ["ba", "soft-skills"]
 draft: false

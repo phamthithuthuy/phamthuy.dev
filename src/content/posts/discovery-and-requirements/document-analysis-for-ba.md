@@ -1,6 +1,6 @@
 ---
 title: "Document Analysis cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA khai thác tài liệu hiện có (policy, form, log, spec, contract) để tìm business rule, term, data definition và discrepancy. Document analysis r…"
 tags: ["ba", "discovery-and-requirements"]
 draft: false

@@ -19,7 +19,7 @@ Mở note này khi:
 
 - [Vai trò BA và vị trí trong dự án](/posts/foundations/ba-role-and-sdlc) — artifact gắn với từng pha SDLC
 - [Agile vs Waterfall cho BA](/posts/foundations/agile-vs-waterfall-for-ba) — bộ tài liệu đổi theo mô hình
-- Use Case cho BA và [BA Artifact Templates](/posts/templates/ba-artifact-templates) — phần Solution mà BA làm chủ
+- [Use Case cho BA](/posts/system-analysis-and-design/use-case-diagram) và [BA Artifact Templates](/posts/templates/ba-artifact-templates) — phần Solution mà BA làm chủ
 
 Tên tài liệu và viết tắt tra ở Glossary thay vì định nghĩa lại từng note.
 
@@ -120,7 +120,7 @@ Hay bị lẫn, nhưng mục đích khác nhau:
 | **Stakeholder (WHAT)** | các bên cần gì? | 8 User Story `SF-2..SF-9` (Browse catalog, Create order, Payment mock, Delivery status, Manage stock, Receive stock, Return, Low stock alert) — mỗi story gắn với một nhóm stakeholder |
 | **Solution (HOW)** | hệ thống làm gì? | Domain model `SF-10` (Product, Customer, Order, OrderItem, Payment, InventoryItem, StockMovement, ReturnRequest), API contract `SF-36` (`GET /products` với stockStatus), Use Case + AC trong từng story |
 
-Quy tắc "luôn truy về why" được kiểm chứng ngay: mỗi story Solution (`SF-3`) đều truy được ngược tới mục tiêu Business (giảm bán quá stock) — nếu một yêu cầu không truy được tới "why", khả năng cao là nó chưa thuộc tầng Solution hợp lệ. Chi tiết từng tầng và cách viết BRD/SRS cho ShopFlow nằm ở SRS và BRD cho BA.
+Quy tắc "luôn truy về why" được kiểm chứng ngay: mỗi story Solution (`SF-3`) đều truy được ngược tới mục tiêu Business (giảm bán quá stock) — nếu một yêu cầu không truy được tới "why", khả năng cao là nó chưa thuộc tầng Solution hợp lệ. Chi tiết từng tầng và cách viết BRD/SRS cho ShopFlow nằm ở [SRS và BRD cho BA](/posts/specification/srs-brd-for-ba).
 
 ---
 
@@ -170,7 +170,7 @@ Trước khi coi việc chọn/viết tài liệu là xong:
 
 - [Vai trò BA và vị trí trong dự án](/posts/foundations/ba-role-and-sdlc)
 - [Agile vs Waterfall cho BA](/posts/foundations/agile-vs-waterfall-for-ba)
-- Use Case cho BA
+- [Use Case cho BA](/posts/system-analysis-and-design/use-case-diagram)
 - [BA Artifact Templates](/posts/templates/ba-artifact-templates)
 - Glossary
 

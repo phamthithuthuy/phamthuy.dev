@@ -1,6 +1,6 @@
 ---
 title: "Facilitation cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA dẫn dắt các buổi làm việc nhóm — workshop, elicitation, refinement — sao cho ra được shared understanding hoặc decision, không chỉ là \"họp xon…"
 tags: ["ba", "soft-skills"]
 draft: false

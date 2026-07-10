@@ -1,6 +1,6 @@
 ---
 title: "Agile Concepts cho BA"
-pubDatetime: 2026-07-09T22:37:09.080Z
+pubDatetime: 2026-07-10T03:46:44+00:00
 description: "Note này giúp BA nắm các khái niệm Agile/Scrum nền tảng cần biết để làm việc trong sprint: work item types, roles, ceremonies, DoR/DoD và estimation. Không dạy…"
 tags: ["ba", "agile-delivery"]
 draft: false
