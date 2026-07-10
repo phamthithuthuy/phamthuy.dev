@@ -1,6 +1,6 @@
 ---
 title: "Sequence Diagram (Biểu đồ Tuần tự)"
-pubDatetime: 2026-07-10T05:12:19.085Z
+pubDatetime: 2026-07-10T05:12:19+00:00
 description: "Note này hướng dẫn cách vẽ UML Sequence Diagram. Nó là bước zoom sâu nhất vào kỹ thuật, trả lời câu hỏi: \"Các thành phần (Components) hoặc API gọi nhau theo tr…"
 tags: ["ba", "system-analysis-and-design"]
 draft: false
@@ -112,4 +112,15 @@ deactivate VNPay
 - [ ] Lời gọi API (Mũi tên đặc) đã có lời hồi đáp (Return - Mũi tên đứt) chưa?
 - [ ] Các trường hợp hệ thống ngoài bị lỗi (Timeout, 500 Error) đã có nhánh `alt` xử lý chưa?
 - [ ] Đã đánh số thứ tự (`autonumber`) để dễ thảo luận trong meeting chưa?
+
+## 5. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 17 (Interactions).
+- *BABOK Guide v3*, Section 10.41 (Sequence Diagrams).
+
+## 6. Related
+
+- Kịch bản tổng quan: [Use Case Diagram](/posts/system-analysis-and-design/use-case-diagram)
+- Luồng rẽ nhánh: [Activity Diagram](/posts/system-analysis-and-design/activity-diagram)
+- Tài liệu tích hợp: Interface Analysis
 

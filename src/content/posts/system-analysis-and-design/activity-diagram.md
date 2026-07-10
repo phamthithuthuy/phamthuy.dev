@@ -1,6 +1,6 @@
 ---
 title: "Activity Diagram (Biểu đồ Hoạt động)"
-pubDatetime: 2026-07-10T05:12:19.085Z
+pubDatetime: 2026-07-10T05:12:19+00:00
 description: "Note này hướng dẫn cách vẽ UML Activity Diagram để mô tả luồng (flow) của một Use Case. Nó trả lời câu hỏi: \"Để đạt được mục tiêu, hệ thống và người dùng phải…"
 tags: ["ba", "system-analysis-and-design"]
 draft: false
@@ -116,4 +116,15 @@ Nhiều BA nhầm lẫn giữa UML Activity và BPMN (Business Process Model and
 - [ ] Mọi rẽ nhánh (Decision) đều có điều kiện rõ ràng (Guard condition) và phủ kín các trường hợp (Ví dụ: >0 và <=0) chưa?
 - [ ] Luồng có rớt vào ngõ cụt không, hay tất cả đều dẫn đến Final Node?
 - [ ] Các hành động song song (Fork) đã được gộp lại (Join) chưa?
+
+## 6. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 15 (Activities).
+- *BABOK Guide v3*, Section 10.35 (Process Modeling).
+
+## 7. Related
+
+- Nguồn gốc luồng: [Use Case Diagram](/posts/system-analysis-and-design/use-case-diagram)
+- Phân tích tương tác sâu: [Sequence Diagram](/posts/system-analysis-and-design/sequence-diagram)
+- Mô hình quy trình tổ chức: BPMN
 

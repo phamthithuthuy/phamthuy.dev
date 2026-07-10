@@ -1,6 +1,6 @@
 ---
 title: "State Diagram (Biểu đồ Trạng thái)"
-pubDatetime: 2026-07-10T05:12:19.085Z
+pubDatetime: 2026-07-10T05:12:19+00:00
 description: "Note này hướng dẫn vẽ UML State Machine Diagram. Nó trả lời câu hỏi: \"Một thực thể (Entity) sinh ra như thế nào, sống qua những trạng thái nào, bị tác động bởi…"
 tags: ["ba", "system-analysis-and-design"]
 draft: false
@@ -96,4 +96,15 @@ Khi BA bàn giao State Diagram này:
 - [ ] Tên các trạng thái là danh từ/tính từ, chứ không phải động từ (hành động)?
 - [ ] Có đường nào đi từ Trạng thái Cuối (`[*]`) ngược lại vòng đời không? (Nếu có là sai UML).
 - [ ] Các chuyển tiếp nhạy cảm đã gắn Điều kiện bảo vệ `[Guard]` chưa?
+
+## 6. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 14 (State Machines).
+- *BABOK Guide v3*, Section 10.44 (State Modelling).
+
+## 7. Related
+
+- Bối cảnh sự kiện: [Sequence Diagram](/posts/system-analysis-and-design/sequence-diagram)
+- Quản lý dữ liệu: Data Modeling / ERD
+- Thao tác thực thể: CRUD Operations
 

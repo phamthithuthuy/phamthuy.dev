@@ -53,34 +53,23 @@ UC_Payment --> PaymentGateway
 
 Một Use Case text chuẩn phải đủ các thành phần sau để không gây tranh cãi:
 
-**Tên Use Case:** UC-ORD-001 Đặt hàng (Checkout)
-**Tham chiếu:** Epic `SF-1`, Requirement `SF-3`
-**Actor chính:** Khách hàng (Customer)
-**Actor phụ:** Không
+**Bảng Đặc tả Use Case (Use Case Specification):**
 
-*   **Pre-conditions (Điều kiện tiên quyết):** Khách hàng đã có ít nhất 1 sản phẩm trong giỏ hàng. Khách hàng đã đăng nhập hoặc nhập email guest.
-*   **Post-conditions (Điều kiện hậu quyết):** Đơn hàng được tạo với trạng thái "Pending". Tồn kho (`available`) bị trừ tương ứng. Email xác nhận được gửi.
-*   **Trigger:** Khách hàng bấm nút "Tiến hành Checkout" tại màn hình Giỏ hàng.
-
-**Normal Flow (Luồng chính - Happy Path):**
-1. Hệ thống hiển thị form thông tin giao hàng và chọn phương thức thanh toán.
-2. Khách hàng nhập địa chỉ và chọn phương thức COD.
-3. Khách hàng bấm "Xác nhận Đặt hàng".
-4. Hệ thống kiểm tra tồn kho (include UC_Inventory). Tồn kho đủ.
-5. Hệ thống lưu đơn hàng, cập nhật tồn kho, và sinh mã đơn hàng (Order ID).
-6. Hệ thống hiển thị màn hình "Đặt hàng thành công".
-
-**Alternate Flows (Luồng phụ):**
-*   **A1 - Khách hàng chọn Thanh toán VNPay:** Tại bước 2, nếu khách chọn VNPay, hệ thống gọi (extend) UC_Payment. Sau khi thanh toán xong quay lại bước 5.
-*   **A2 - Khách muốn sửa giỏ hàng:** Tại bước 1, khách bấm "Quay lại giỏ hàng", hệ thống chuyển hướng về trang Cart. Kết thúc Use Case.
-
-**Exception Flows (Luồng ngoại lệ - Lỗi):**
-*   **E1 - Hết hàng đột xuất:** Tại bước 4, hệ thống phát hiện tồn kho `available` < số lượng đặt (do có người vừa mua). Hệ thống báo lỗi "Sản phẩm X không đủ số lượng" và chặn đặt hàng.
-*   **E2 - Lỗi hệ thống lưu trữ:** Tại bước 5, database timeout, hệ thống báo lỗi "Vui lòng thử lại sau" và không trừ tồn kho.
+| Thuộc tính | Chi tiết |
+|---|---|
+| **Tên Use Case** | UC-ORD-001 Đặt hàng (Checkout) |
+| **Tham chiếu** | Epic `SF-1`, Requirement `SF-3` |
+| **Actor** | **Chính:** Khách hàng (Customer) <br> **Phụ:** VNPay |
+| **Pre-conditions** | Khách đã có ≥1 sản phẩm trong giỏ. Khách đã đăng nhập/nhập email. |
+| **Post-conditions**| Đơn hàng tạo thành công (Trạng thái "Pending"). Tồn kho `available` bị trừ. Đã gửi Email. |
+| **Trigger** | Khách hàng bấm "Tiến hành Checkout" tại Giỏ hàng. |
+| **Normal Flow** | 1. Hệ thống hiện form giao hàng & thanh toán.<br>2. Khách nhập địa chỉ, chọn COD.<br>3. Khách bấm "Xác nhận".<br>4. Hệ thống kiểm tra tồn kho (include UC_Inventory). Tồn kho đủ.<br>5. Hệ thống lưu đơn, trừ tồn kho, sinh Order ID.<br>6. Hệ thống hiển thị "Thành công". |
+| **Alternate Flow** | **A1 (Chọn VNPay):** Tại bước 2, nếu chọn VNPay, hệ thống gọi (extend) UC_Payment. Thanh toán xong quay lại bước 5.<br>**A2 (Sửa giỏ):** Tại bước 1, khách bấm "Quay lại giỏ hàng", chuyển về trang Cart. Hủy Use Case. |
+| **Exception Flow** | **E1 (Hết hàng):** Tại bước 4, tồn kho `available` < số lượng đặt. Hệ thống chặn, báo lỗi "Sản phẩm X không đủ".<br>**E2 (Lỗi DB):** Tại bước 5, database timeout, hệ thống báo lỗi "Thử lại sau" và không trừ kho. |
 
 ## 4. Anti-pattern (Những lỗi sai phổ biến)
 
-*   **Biến Use Case thành Sơ đồ quy trình (Flowchart):** Dùng nét đứt mũi tên nối các Use Case với nhau (Bấm Login -> Xem danh sách -> Chọn hàng). Sai hoàn toàn UML.
+*   **Biến Use Case thành Sơ đồ quy trình (Flowchart):** Dùng nét đứt mũi tên nối các Use Case với nhau (Bấm Login -> Xem danh sách -> Chọn hàng). Sai hoàn toàn UML. Muốn vẽ thứ tự, hãy dùng [[activity-diagram|Activity Diagram]].
 *   **CRUD Use Case:** Vẽ 4 hình oval "Thêm User", "Sửa User", "Xóa User". Hãy gộp thành 1 Use Case "Quản lý User" (Manage User) để sơ đồ bớt rác.
 *   **Thiếu Pre/Post condition:** Dẫn đến QA không biết setup data mẫu thế nào để test.
 
@@ -91,3 +80,14 @@ Một Use Case text chuẩn phải đủ các thành phần sau để không gâ
 - [ ] Tên Use Case có bắt đầu bằng động từ không?
 - [ ] Đặc tả text đã liệt kê đủ luồng chính, luồng phụ, và ngoại lệ chưa?
 - [ ] Tồn kho, database state có được định nghĩa rõ ràng ở Post-condition chưa?
+
+## 6. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 18 (Use Cases).
+- *BABOK Guide v3*, Section 10.47 (Use Cases and Scenarios).
+
+## 7. Related
+
+- Trích xuất luồng chi tiết: [[activity-diagram|Activity Diagram]]
+- Xem tương tác kỹ thuật: [[sequence-diagram|Sequence Diagram]]
+- Đóng gói vào tài liệu: [[srs-brd-for-ba|SRS và BRD]]

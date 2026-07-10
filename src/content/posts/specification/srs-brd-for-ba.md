@@ -85,3 +85,13 @@ Khác với Waterfall (viết xong SRS 100 trang mới code), trong Agile:
 - [ ] Có kèm theo Wireframe hoặc Link tới thiết kế để minh họa không?
 - [ ] Các Business Rules (quy tắc tính toán giảm giá, tính tồn kho) đã được mô tả không mâu thuẫn nhau chưa?
 
+## 5. References
+
+- *ISO/IEC/IEEE 29148:2018*, Systems and software engineering — Life cycle processes — Requirements engineering.
+- *BABOK Guide v3*, Section 10.47 (Use Cases and Scenarios) - Role of Specs.
+
+## 6. Related
+
+- Đặc tả kịch bản: [Use Case Diagram](/posts/system-analysis-and-design/use-case-diagram)
+- Đặc tả yêu cầu người dùng: [User Story và AC](/posts/agile-delivery/user-story-and-acceptance-criteria)
+

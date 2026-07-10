@@ -107,3 +107,14 @@ deactivate VNPay
 - [ ] Lời gọi API (Mũi tên đặc) đã có lời hồi đáp (Return - Mũi tên đứt) chưa?
 - [ ] Các trường hợp hệ thống ngoài bị lỗi (Timeout, 500 Error) đã có nhánh `alt` xử lý chưa?
 - [ ] Đã đánh số thứ tự (`autonumber`) để dễ thảo luận trong meeting chưa?
+
+## 5. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 17 (Interactions).
+- *BABOK Guide v3*, Section 10.41 (Sequence Diagrams).
+
+## 6. Related
+
+- Kịch bản tổng quan: [[use-case-diagram|Use Case Diagram]]
+- Luồng rẽ nhánh: [[activity-diagram|Activity Diagram]]
+- Tài liệu tích hợp: [[interface-and-integration-analysis|Interface Analysis]]

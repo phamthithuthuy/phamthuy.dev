@@ -111,3 +111,14 @@ Nhiều BA nhầm lẫn giữa UML Activity và BPMN (Business Process Model and
 - [ ] Mọi rẽ nhánh (Decision) đều có điều kiện rõ ràng (Guard condition) và phủ kín các trường hợp (Ví dụ: >0 và <=0) chưa?
 - [ ] Luồng có rớt vào ngõ cụt không, hay tất cả đều dẫn đến Final Node?
 - [ ] Các hành động song song (Fork) đã được gộp lại (Join) chưa?
+
+## 6. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 15 (Activities).
+- *BABOK Guide v3*, Section 10.35 (Process Modeling).
+
+## 7. Related
+
+- Nguồn gốc luồng: [[use-case-diagram|Use Case Diagram]]
+- Phân tích tương tác sâu: [[sequence-diagram|Sequence Diagram]]
+- Mô hình quy trình tổ chức: [[business-process-modeling-bpmn|BPMN]]

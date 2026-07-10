@@ -91,3 +91,14 @@ Khi BA bàn giao State Diagram này:
 - [ ] Tên các trạng thái là danh từ/tính từ, chứ không phải động từ (hành động)?
 - [ ] Có đường nào đi từ Trạng thái Cuối (`[*]`) ngược lại vòng đời không? (Nếu có là sai UML).
 - [ ] Các chuyển tiếp nhạy cảm đã gắn Điều kiện bảo vệ `[Guard]` chưa?
+
+## 6. References
+
+- *OMG Unified Modeling Language (UML) Specification v2.5.1*, Section 14 (State Machines).
+- *BABOK Guide v3*, Section 10.44 (State Modelling).
+
+## 7. Related
+
+- Bối cảnh sự kiện: [[sequence-diagram|Sequence Diagram]]
+- Quản lý dữ liệu: [[data-modeling-and-erd|Data Modeling / ERD]]
+- Thao tác thực thể: [[crud-operations|CRUD Operations]]
