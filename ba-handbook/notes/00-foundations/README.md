@@ -23,4 +23,3 @@ Source nền tảng nằm ở `library/02-foundations/` (PDF + lesson note).
 - [[README|BA Handbook Notes]]
 - [[_conventions|Conventions — Foundations]]
 - [[note-guidelines|Note guidelines]]
-</content>

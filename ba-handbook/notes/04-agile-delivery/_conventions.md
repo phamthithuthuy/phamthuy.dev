@@ -38,4 +38,3 @@
 
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 04]]
-</content>

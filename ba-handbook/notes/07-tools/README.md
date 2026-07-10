@@ -21,4 +21,3 @@ Chưa có note thực hành. Source literacy kỹ thuật (SQL, security awarene
 - [[_conventions|Conventions — Tools]]
 - [[note-guidelines|Note guidelines]]
 - [[../mapping/README|Study Map & Source Mapping]]
-</content>

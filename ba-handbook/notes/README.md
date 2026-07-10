@@ -16,7 +16,7 @@
 | 03 — Specification | viết đặc tả và truy vết yêu cầu (SRS, RTM) | scaffold | [[03-specification/README\|03 — Specification]] |
 | 04 — Agile Delivery | biến requirement thành backlog và giao giá trị | có note | [[04-agile-delivery/README\|04 — Agile Delivery]] |
 | 05 — Domain Knowledge | nắm nghiệp vụ theo domain cụ thể | scaffold | [[05-domain-knowledge/README\|05 — Domain Knowledge]] |
-| 06 — Soft Skills | giao tiếp, facilitation, đàm phán scope | scaffold | [[06-soft-skills/README\|06 — Soft Skills]] |
+| 06 — Soft Skills | giao tiếp, facilitation, đàm phán scope | có note | [[06-soft-skills/README\|06 — Soft Skills]] |
 | 07 — Tools | dùng Jira, Confluence, Figma, SQL cho BA | scaffold | [[07-tools/README\|07 — Tools]] |
 | 08 — Templates | template copy-ready khi viết tài liệu | có note | [[08-templates/README\|08 — Templates]] |
 
@@ -104,6 +104,10 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 | [[non-functional-requirements-for-ba|Non-functional Requirements cho BA]] | cần khai thác quality expectation thành scenario có measure |
 | [[requirement-quality-and-validation|Requirement Quality & Validation]] | cần verify/validate requirement trước handoff |
 | [[solution-options-and-business-case|Solution Options & Business Case]] | cần so sánh option và tạo recommendation cuối discovery |
+| [[observation-for-ba|Observation & Contextual Inquiry cho BA]] | cần quan sát workflow thực tế, work-as-done vs work-as-described |
+| [[survey-for-ba|Survey cho BA]] | cần đo prevalence, segment signal sau exploratory research |
+| [[document-analysis-for-ba|Document Analysis cho BA]] | cần trích xuất rule, term, constraint từ policy, form, log, spec |
+| [[prototype-for-elicitation|Prototype cho Elicitation]] | cần feedback sớm về flow/interaction trước khi dev build |
 
 ### 02 — System Analysis & Design
 
@@ -130,7 +134,16 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 
 | Note | Dùng khi |
 |---|---|
-| [[ba-artifact-templates|BA Artifact Templates]] | cần copy nhanh template elicitation, requirement brief, story/AC, refinement note, impact analysis, decision log |
+| [[ba-artifact-templates|BA Artifact Templates]] | cần copy nhanh template user story, AC, DoR/DoD, decision log, open question register, elicitation note |
+
+### 06 — Soft Skills
+
+| Note | Dùng khi |
+|---|---|
+| [[critical-thinking-and-structured-thinking|Tư duy phản biện & Có cấu trúc cho BA]] | cần khung 5W1H, phân biệt fact/assumption/opinion, hypothesis vs causal chain, pyramid principle |
+| [[facilitation-for-ba|Facilitation cho BA]] | cần dẫn workshop/refinement hiệu quả, xử lý dynamics, silent-first |
+| [[scope-negotiation-for-ba|Đàm phán scope cho BA]] | cần xử lý kỳ vọng stakeholder, trade-off, nói "không" đúng cách |
+| [[writing-clearly-for-ba|Viết rõ ràng cho BA]] | cần viết requirement/AC không mơ hồ, unambiguous, audience-specific |
 
 ---
 
@@ -139,12 +152,13 @@ Nếu story còn mơ hồ, quay lại [[requirement-elicitation|Requirement Elic
 Roadmap chi tiết nằm trong README của từng nhóm (mục Planned scope). Các note dự kiến:
 
 - **00 — Foundations:** BABOK overview (knowledge areas)
-- **01 — Discovery:** v1 đã đủ; mở rộng sau bằng Observation, Document Analysis, Survey, Prototyping
+- **01 — Discovery:** v1 đã đủ 15 note; có thể mở rộng thêm Contextual Inquiry nâng cao khi có nhu cầu
+- **02 — System Analysis & Design:** Activity Diagram, Sequence Diagram, State Machine, Wireframe, BPMN, ERD, Data Dictionary, Permission Matrix, Integration Analysis, System Context, Model Selection
 - **02 — System Analysis & Design:** Activity Diagram, Sequence Diagram, State Machine, Wireframe
 - **03 — Specification:** SRS/FRS, BRD, Requirements Traceability Matrix (RTM)
 - **04 — Agile Delivery:** Prioritization and Estimation, Process Modeling and Flow Diagram
 - **05 — Domain Knowledge:** theo domain dự án thực tế
-- **06 — Soft Skills:** facilitation, đàm phán scope, viết rõ ràng
+- **06 — Soft Skills:** v1 đã đủ 4 note; có thể mở rộng conflict resolution, storytelling cho BA
 - **07 — Tools:** Jira/Confluence, Figma, SQL cho BA
 - **08 — Templates:** SRS and Functional Specification
 

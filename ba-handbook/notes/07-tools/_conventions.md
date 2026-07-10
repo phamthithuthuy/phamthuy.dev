@@ -32,4 +32,3 @@ Chưa có thuật ngữ cục bộ riêng; thuật ngữ kỹ thuật dùng chun
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 07]]
 - [[../mapping/README|Study Map & Source Mapping]]
-</content>

@@ -19,7 +19,7 @@ Mở note này khi:
 
 - [Vai trò BA và vị trí trong dự án](/posts/foundations/ba-role-and-sdlc) — pha SDLC mà mô hình này sắp xếp lại
 - [Hệ tài liệu BA phải biết](/posts/foundations/ba-documentation-types) — artifact tương ứng mỗi mô hình
-- Agile concepts cho BA — chi tiết epic, story, backlog, sprint
+- [Agile concepts cho BA](/posts/agile-delivery/agile-concepts-for-ba) — chi tiết epic, story, backlog, sprint
 
 Thuật ngữ nền (SDLC, Waterfall, Agile, backlog…) tra ở Glossary.
 
@@ -89,8 +89,8 @@ Từ mental model này suy ra mọi khác biệt còn lại: nếu yêu cầu ch
 | Thời điểm lấy & chốt requirement | gần như toàn bộ ở đầu | liên tục, theo từng sprint/lát |
 | Mức độ chi tiết tài liệu một lần | cao, đầy đủ trước khi build | vừa đủ cho item sắp làm (just-in-time) |
 | Artifact chính | BRD, SRS/FRS, Use Case đầy đủ | Epic, User Story, Acceptance Criteria, Product Backlog, PRD |
-| Xử lý thay đổi | qua change request chính thức | đưa vào backlog, ưu tiên lại ở refinement |
-| Nhịp làm việc của BA | theo cột mốc (milestone) | theo sprint; tham gia planning, refinement, review |
+| Xử lý thay đổi | qua [change request](/posts/agile-delivery/change-request-and-impact-analysis) chính thức | đưa vào backlog, ưu tiên lại ở refinement |
+| Nhịp làm việc của BA | theo cột mốc (milestone) | theo sprint; tham gia planning, [refinement](/posts/agile-delivery/backlog-refinement), review |
 | Rủi ro đặc trưng | phát hiện hiểu sai quá muộn | tài liệu rời rạc, thiếu bức tranh tổng thể |
 
 Điểm cần nhớ: Agile **không** có nghĩa là "không viết tài liệu". Nó có nghĩa là viết **đúng lúc và vừa đủ**, ưu tiên trao đổi trực tiếp, nhưng vẫn cần story, AC và đủ ngữ cảnh để dev và tester làm việc.
@@ -167,7 +167,7 @@ Khi vào dự án, xác định:
 
 - [Vai trò BA và vị trí trong dự án](/posts/foundations/ba-role-and-sdlc)
 - [Hệ tài liệu BA phải biết](/posts/foundations/ba-documentation-types)
-- Agile concepts cho BA
-- Change Request & Impact Analysis
+- [Agile concepts cho BA](/posts/agile-delivery/agile-concepts-for-ba)
+- [Change Request & Impact Analysis](/posts/agile-delivery/change-request-and-impact-analysis)
 - Glossary
 

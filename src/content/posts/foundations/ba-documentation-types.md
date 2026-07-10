@@ -19,7 +19,7 @@ Mở note này khi:
 
 - [Vai trò BA và vị trí trong dự án](/posts/foundations/ba-role-and-sdlc) — artifact gắn với từng pha SDLC
 - [Agile vs Waterfall cho BA](/posts/foundations/agile-vs-waterfall-for-ba) — bộ tài liệu đổi theo mô hình
-- Use Case cho BA và BA Artifact Templates — phần Solution mà BA làm chủ
+- Use Case cho BA và [BA Artifact Templates](/posts/templates/ba-artifact-templates) — phần Solution mà BA làm chủ
 
 Tên tài liệu và viết tắt tra ở Glossary thay vì định nghĩa lại từng note.
 
@@ -171,6 +171,6 @@ Trước khi coi việc chọn/viết tài liệu là xong:
 - [Vai trò BA và vị trí trong dự án](/posts/foundations/ba-role-and-sdlc)
 - [Agile vs Waterfall cho BA](/posts/foundations/agile-vs-waterfall-for-ba)
 - Use Case cho BA
-- BA Artifact Templates
+- [BA Artifact Templates](/posts/templates/ba-artifact-templates)
 - Glossary
 

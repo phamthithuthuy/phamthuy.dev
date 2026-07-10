@@ -32,4 +32,3 @@
 
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 08]]
-</content>

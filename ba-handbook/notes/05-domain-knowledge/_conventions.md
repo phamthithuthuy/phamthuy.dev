@@ -30,4 +30,3 @@ Thuật ngữ đặc thù từng domain — định nghĩa ngay trong note của
 
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 05]]
-</content>

@@ -4,13 +4,14 @@
 
 ## Current scope
 
-Chưa có note thực hành. Một phần kỹ năng (lắng nghe, quan sát, phỏng vấn) hiện được chạm tới qua source trong `library/03-discovery/`.
+Chưa có note thực hành.
 
 ## Planned scope
 
-- Facilitation — dẫn dắt workshop, họp elicitation hiệu quả.
-- Đàm phán scope — xử lý kỳ vọng và giới hạn với stakeholder.
-- Viết rõ ràng — viết requirement/tài liệu không mơ hồ, không đa nghĩa.
+- [[critical-thinking-and-structured-thinking|Tư duy phản biện & Có cấu trúc cho BA]] — 5W1H, phân biệt fact/assumption/opinion, hypothesis vs causal chain, pyramid principle trước elicitation.
+- [[facilitation-for-ba|Facilitation cho BA]] — dẫn dắt workshop, họp elicitation hiệu quả, silent-first, power dynamic, parking lot.
+- [[scope-negotiation-for-ba|Đàm phán scope cho BA]] — xử lý kỳ vọng và giới hạn với stakeholder, trade-off dialogue, framing.
+- [[writing-clearly-for-ba|Viết rõ ràng cho BA]] — viết requirement/tài liệu không mơ hồ, cụ thể hóa, unambiguous, audience.
 
 Đây là roadmap. Khi viết, bám [[note-guidelines|Note guidelines]] và [[_conventions|Conventions của nhóm]].
 
@@ -19,4 +20,3 @@ Chưa có note thực hành. Một phần kỹ năng (lắng nghe, quan sát, ph
 - [[README|BA Handbook Notes]]
 - [[_conventions|Conventions — Soft Skills]]
 - [[note-guidelines|Note guidelines]]
-</content>

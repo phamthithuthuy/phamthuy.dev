@@ -34,4 +34,3 @@
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 03]]
 - [[../mapping/README|Study Map & Source Mapping]]
-</content>

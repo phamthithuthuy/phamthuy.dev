@@ -36,4 +36,3 @@
 
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 02]]
-</content>

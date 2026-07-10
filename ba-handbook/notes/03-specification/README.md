@@ -21,4 +21,3 @@ Chưa có note thực hành. Template SRS hiện nằm ở `library/10-templates
 - [[_conventions|Conventions — Specification]]
 - [[note-guidelines|Note guidelines]]
 - [[../mapping/README|Study Map & Source Mapping]]
-</content>

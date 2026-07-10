@@ -22,4 +22,3 @@ Chỉ tạo note khi có nội dung thật từ dự án. Tránh chép kiến th
 - [[README|BA Handbook Notes]]
 - [[_conventions|Conventions — Domain Knowledge]]
 - [[note-guidelines|Note guidelines]]
-</content>

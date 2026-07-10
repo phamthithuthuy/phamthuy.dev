@@ -18,6 +18,10 @@
 | [[non-functional-requirements-for-ba\|Non-functional Requirements cho BA]] | khai thác quality expectation thành scenario có measure |
 | [[requirement-quality-and-validation\|Requirement Quality & Validation]] | verify chất lượng và validate requirement trước handoff |
 | [[solution-options-and-business-case\|Solution Options & Business Case]] | so sánh option, trade-off và recommendation cuối discovery |
+| [[observation-for-ba\|Observation & Contextual Inquiry cho BA]] | quan sát workflow thực tế, work-as-done vs work-as-described |
+| [[survey-for-ba\|Survey cho BA]] | survey sau exploratory để đo prevalence, kiểm soát sample/wording bias |
+| [[document-analysis-for-ba\|Document Analysis cho BA]] | phân tích form, log, policy, specification cho quy định nghiệp vụ |
+| [[prototype-for-elicitation\|Prototype cho Elicitation]] | prototype cho elicitation (không UI design), hypothesis + fidelity rõ |
 
 ## Suggested reading path
 
@@ -35,14 +39,10 @@
 Discovery có vòng lặp: evidence mới có thể làm đổi problem, scope, stakeholder
 hoặc option. Reading path không phải stage gate cứng.
 
-## Planned scope
-
-Chỉ tách note chuyên sâu khi có đủ evidence và nhu cầu thực tế:
-
-- Observation & Contextual Inquiry.
-- Document Analysis for Requirements.
-- Surveys & Questionnaires for BA.
-- Prototyping for Elicitation.
+- [[observation-for-ba|Observation & Contextual Inquiry cho BA]] — quan sát workflow thực tế, khác biệt "work-as-done vs work-as-described", observer effect, triangulate với interview.
+- [[document-analysis-for-ba|Document Analysis cho BA]] — phân tích form, log, policy, policy, specification để tìm quy định nghiệp vụ, term, và discrepancy.
+- [[survey-for-ba|Survey cho BA]] — survey sau exploratory để đo prevalence, sample/wording/non-response bias, segment signal.
+- [[prototype-for-elicitation|Prototype cho Elicitation]] — prototype cho elicitation, không cho UI design; hypothesis + fidelity rõ; giúp phát hiện interaction gap.
 
 ## Related
 

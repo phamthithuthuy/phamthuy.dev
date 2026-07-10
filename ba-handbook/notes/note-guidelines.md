@@ -252,5 +252,3 @@ Nếu một note chỉ liệt kê rule mà chưa giúp quyết định trong tì
 - [[../glossary|Glossary]]
 - [[../mapping/README|Study Map & Source Mapping]]
 - [[../pipelines/course-video-to-handbook-guidelines|Course video to handbook guidelines]]
-</content>
-</invoke>

@@ -29,4 +29,3 @@ Không có ngoại lệ đặc thù tại thời điểm này.
 
 - [[note-guidelines|Note guidelines]]
 - [[README|Index nhóm 00]]
-</content>
