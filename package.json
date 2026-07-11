@@ -14,7 +14,8 @@
     "astro": "astro",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "cv": "python3 scripts/build_cv.py"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.1",
