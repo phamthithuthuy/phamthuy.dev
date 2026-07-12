@@ -234,9 +234,9 @@ bullet(
     [
         "Phối hợp với ",
         B("FE và BE"),
-        " để làm rõ requirement trong sprint; thực hiện ",
-        B("kiểm thử / UAT theo AC"),
-        ", ghi nhận lỗi và nghiệm thu trước khi chốt sprint; soạn user "
+        " để làm rõ requirement trong sprint; ",
+        B("nghiệm thu tính năng theo acceptance criteria"),
+        ", ghi nhận lỗi/lệch requirement trước khi chốt sprint; soạn user "
         "manual & checklist nghiệm thu cuối dự án.",
     ]
 )
@@ -276,7 +276,7 @@ heading("Kỹ năng")
 skill_line(
     "Phân tích nghiệp vụ",
     "Elicitation · Competitor analysis · User Story · Use Case · SRS/BRD · "
-    "Acceptance Criteria · UAT",
+    "Acceptance Criteria",
 )
 skill_line("Mô hình hoá", "UML (Use Case, Activity, Sequence, State) · BPMN · ERD · Wireframe")
 skill_line("Công cụ", "Jira · Confluence · Figma · Draw.io · Postman · Microsoft Office")
