@@ -140,18 +140,22 @@ run(
     size=10,
 )
 
-# ===================== TÓM TẮT =====================
-heading("Tóm tắt")
+# ===================== ĐỊNH HƯỚNG NGHỀ NGHIỆP =====================
+heading("Định hướng nghề nghiệp")
 p = add_para(space_after=2)
-run(p, "Sinh viên CNTT năm cuối, định hướng ")
-run(p, "Business Analyst", bold=True)
+run(p, "Ngắn hạn: ", bold=True)
 run(
     p,
-    ", tập trung vào phân tích nghiệp vụ, đặc tả yêu cầu và mô hình hoá quy trình. Có kinh "
-    "nghiệm làm BA trong nhóm xây dựng hệ thống bán hàng & quản lý kho end-to-end theo "
-    "Agile/Scrum (dự án học tập từ case study): phân tích nghiệp vụ, viết user story/use "
-    "case và bàn giao tài liệu cho đội phát triển. Tư duy hệ thống, cẩn thận với chi tiết — "
-    "luôn hỏi tại sao một yêu cầu tồn tại, ai là người dùng cuối, và tradeoff nghiệp vụ là gì.",
+    "Tìm kiếm vị trí Business Analyst Intern để vận dụng kỹ năng khai thác yêu cầu, viết "
+    "user story/use case, xây dựng tài liệu đặc tả và mô hình hoá quy trình; đồng thời tích "
+    "luỹ kinh nghiệm làm việc với stakeholder và đội phát triển. ",
+)
+run(p, "Dài hạn: ", bold=True)
+run(
+    p,
+    "Trở thành Business Analyst có kiến thức nghiệp vụ và nền tảng kỹ thuật vững, có khả "
+    "năng phân tích bài toán phức tạp, đề xuất giải pháp phù hợp và làm cầu nối hiệu quả "
+    "giữa doanh nghiệp với đội ngũ phát triển sản phẩm.",
 )
 
 # ===================== HỌC VẤN =====================
@@ -169,15 +173,6 @@ bullet(
         " trong 2 kỳ học gần nhất; nhận học bổng khuyến khích học tập.",
     ]
 )
-bullet(
-    [
-        "Môn học liên quan: Phân tích & Thiết kế hệ thống, Cơ sở dữ liệu, Cấu trúc dữ liệu & "
-        "Giải thuật, Lập trình hướng đối tượng, Lập trình web, Hệ điều hành, Mạng máy tính, "
-        "Quản lý dự án phần mềm."
-    ],
-    space_after=2,
-)
-
 # ===================== DỰ ÁN =====================
 heading("Dự án")
 
@@ -187,61 +182,74 @@ entry(
 )
 entry(
     "Business Analyst (nhóm 3 người · dự án học tập từ case study)",
-    "Jira · Agile/Scrum · UML · BPMN · SQL",
+    "Jira · Agile/Scrum · UML · Figma · SQL",
     left_bold=False,
     italic=True,
 )
 bullet(
     [
-        "Phân tích case study bán hàng & quản lý kho; xác định 3 nhóm tác nhân (chủ shop, "
-        "nhân viên kho, khách hàng) và chuyển hoá thành ",
-        B("user story"),
-        " kèm tiêu chí "
-        "chấp nhận (acceptance criteria) cho từng sprint.",
-    ]
-)
-bullet(
-    [
-        "Viết tài liệu đặc tả yêu cầu (",
-        B("SRS"),
-        ") và ",
-        B("use case"),
-        " cho các luồng: "
-        "danh mục sản phẩm, tạo đơn, mô phỏng thanh toán, quản lý tồn kho, nhập hàng, hoàn "
-        "hàng và cảnh báo sắp hết hàng.",
-    ]
-)
-bullet(
-    [
-        "Mô hình hoá nghiệp vụ bằng ",
-        B("activity diagram, sequence diagram"),
+        "Phân tích case study bán hàng–kho; thực hiện ",
+        B("competitor analysis"),
+        " (đối chiếu "
+        "tính năng các giải pháp POS/quản lý kho) để chốt ",
+        B("3 nhóm actor"),
         " và ",
-        B("state machine"),
-        " cho vòng đời đơn hàng; đặc tả hai trạng thái độc lập cho thanh "
-        "toán và giao hàng để bộ phận phát triển bám sát.",
+        B("phạm vi MVP"),
+        " cho 3 sprint.",
     ]
 )
 bullet(
     [
-        "Phối hợp thiết kế CSDL với đội backend: rà soát ",
-        I("ERD"),
-        " 12 bảng, xác định quy "
-        "tắc nghiệp vụ tồn kho 3 chỉ số (available = on_hand − reserved) và yêu cầu lưu vết "
-        "lịch sử hoá đơn (snapshot).",
-    ]
-)
-bullet(
-    [
-        "Quản lý ",
+        "Chuyển yêu cầu thành ",
+        B("user story"),
+        " kèm ",
+        B("acceptance criteria"),
+        "; quản lý ",
         B("product backlog trên Jira"),
-        "; tham gia sprint planning, refinement và "
-        "review; nghiệm thu tính năng theo acceptance criteria để đảm bảo MVP đúng phạm vi.",
+        "; tham gia sprint planning, refinement và review.",
     ]
 )
 bullet(
     [
-        "Soạn user manual & checklist nghiệm thu cuối dự án; làm cầu nối giữa yêu cầu nghiệp "
-        "vụ và đội Frontend/Backend trong suốt 3 sprint."
+        "Viết ",
+        B("SRS"),
+        " cho các ",
+        B("module"),
+        " (danh mục sản phẩm, tồn kho…) và các ",
+        B("luồng nghiệp vụ"),
+        " (tạo đơn, mô phỏng thanh toán, nhập hàng, hoàn hàng, cảnh báo sắp hết hàng); "
+        "mô hình hoá bằng activity / sequence / state cho vòng đời đơn hàng (tách trạng "
+        "thái thanh toán và giao hàng).",
+    ]
+)
+bullet(
+    [
+        "Phác thảo ",
+        B("wireframe trên Figma"),
+        " cho các màn hình chính để thống nhất flow với team "
+        "trước khi phát triển.",
+    ]
+)
+bullet(
+    [
+        "Phối hợp với ",
+        B("FE và BE"),
+        " để làm rõ requirement trong sprint; thực hiện ",
+        B("kiểm thử / UAT theo AC"),
+        ", ghi nhận lỗi và nghiệm thu trước khi chốt sprint; soạn user "
+        "manual & checklist nghiệm thu cuối dự án.",
+    ]
+)
+bullet(
+    [
+        "Ứng dụng ",
+        B("AI"),
+        " hỗ trợ tóm tắt đối thủ, draft tài liệu/story và gợi ý wireframe; "
+        "dùng ",
+        B("skill viết Jira issue qua Jira MCP"),
+        " để soạn issue nhanh hơn; ",
+        B("tự rà soát"),
+        " trước khi chốt với team.",
     ],
     space_after=3,
 )
@@ -267,10 +275,15 @@ bullet(
 heading("Kỹ năng")
 skill_line(
     "Phân tích nghiệp vụ",
-    "Elicitation · User Story · Use Case · SRS/BRD · Acceptance Criteria · UAT",
+    "Elicitation · Competitor analysis · User Story · Use Case · SRS/BRD · "
+    "Acceptance Criteria · UAT",
 )
 skill_line("Mô hình hoá", "UML (Use Case, Activity, Sequence, State) · BPMN · ERD · Wireframe")
 skill_line("Công cụ", "Jira · Confluence · Figma · Draw.io · Postman · Microsoft Office")
+skill_line(
+    "AI / automation",
+    "Jira MCP (soạn issue/story) · hỗ trợ research & draft tài liệu",
+)
 skill_line("Dữ liệu & Kỹ thuật", "SQL · PostgreSQL · REST API (đọc hiểu) · OpenAPI")
 skill_line(
     "Phương pháp & Kỹ năng mềm",
