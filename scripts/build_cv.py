@@ -224,10 +224,15 @@ bullet(
 )
 bullet(
     [
-        "Phác thảo ",
-        B("wireframe trên Figma"),
-        " cho các màn hình chính để thống nhất flow với team "
-        "trước khi phát triển.",
+        "Dùng ",
+        B("Figma"),
+        " và ",
+        B("Figma Make (tính năng AI của Figma)"),
+        " để phác thảo ",
+        B("wireframe và demo giao diện"),
+        " các màn hình chính; ",
+        B("chỉnh sửa theo luồng nghiệp vụ"),
+        " và thống nhất với team trước khi phát triển.",
     ]
 )
 bullet(
@@ -242,12 +247,13 @@ bullet(
 )
 bullet(
     [
-        "Ứng dụng ",
-        B("AI"),
-        " hỗ trợ tóm tắt đối thủ, draft tài liệu/story và gợi ý wireframe; "
-        "dùng ",
-        B("skill viết Jira issue qua Jira MCP"),
-        " để soạn issue nhanh hơn; ",
+        "Dùng ",
+        B("Claude Code / OpenCode"),
+        " hỗ trợ research & draft tài liệu (story, AC, SRS); dùng ",
+        B("MCP + Skills"),
+        " (gồm skill soạn ",
+        B("Jira issue"),
+        ") để tăng tốc backlog; ",
         B("tự rà soát"),
         " trước khi chốt với team.",
     ],
@@ -282,7 +288,7 @@ skill_line("Mô hình hoá", "UML (Use Case, Activity, Sequence, State) · BPMN 
 skill_line("Công cụ", "Jira · Confluence · Figma · Draw.io · Postman · Microsoft Office")
 skill_line(
     "AI / automation",
-    "Jira MCP (soạn issue/story) · hỗ trợ research & draft tài liệu",
+    "Claude Code · OpenCode · MCP · Skills · Figma Make",
 )
 skill_line("Dữ liệu & Kỹ thuật", "SQL · PostgreSQL · REST API (đọc hiểu) · OpenAPI")
 skill_line(

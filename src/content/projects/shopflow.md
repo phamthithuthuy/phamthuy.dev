@@ -1,6 +1,6 @@
 ---
 title: "ShopFlow — Hệ thống Bán hàng & Quản lý kho"
-description: "Business Analyst (nhóm 3 người, dự án học tập từ case study) qua 3 sprint Agile/Scrum: competitor analysis, user story & AC, SRS, wireframe Figma, nghiệm thu theo AC với FE/BE, và AI/Jira MCP hỗ trợ soạn issue."
+description: "Business Analyst (nhóm 3 người, dự án học tập từ case study) qua 3 sprint Agile/Scrum: competitor analysis, user story & AC, SRS, Figma/Figma Make wireframe, nghiệm thu theo AC với FE/BE, Claude Code/OpenCode/MCP/Skills."
 tech:
   - Jira
   - Agile/Scrum
@@ -25,12 +25,13 @@ Agile/Scrum — dự án học tập từ case study.
   các luồng nghiệp vụ (tạo đơn, mô phỏng thanh toán, nhập hàng, hoàn hàng, cảnh
   báo sắp hết hàng); mô hình hoá bằng activity / sequence / state cho vòng đời
   đơn hàng (tách trạng thái thanh toán và giao hàng).
-- **Wireframe**: phác thảo wireframe trên Figma cho các màn hình chính để thống
-  nhất flow với team trước khi phát triển.
+- **Wireframe & demo UI**: dùng Figma và Figma Make (tính năng AI của Figma) để
+  phác thảo wireframe và demo giao diện các màn hình chính; chỉnh sửa theo luồng
+  nghiệp vụ và thống nhất với team trước khi phát triển.
 - **Phối hợp & nghiệm thu**: phối hợp với FE và BE để làm rõ requirement trong
   sprint; nghiệm thu tính năng theo acceptance criteria, ghi nhận lỗi/lệch
   requirement trước khi chốt sprint; soạn user manual & checklist nghiệm thu
   cuối dự án.
-- **AI hỗ trợ**: ứng dụng AI hỗ trợ tóm tắt đối thủ, draft tài liệu/story và gợi
-  ý wireframe; dùng skill viết Jira issue qua Jira MCP để soạn issue nhanh hơn;
-  tự rà soát trước khi chốt với team.
+- **AI hỗ trợ**: dùng Claude Code / OpenCode hỗ trợ research & draft tài liệu
+  (story, AC, SRS); dùng MCP + Skills (gồm skill soạn Jira issue) để tăng tốc
+  backlog; tự rà soát trước khi chốt với team.

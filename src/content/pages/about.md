@@ -32,6 +32,7 @@ mô hình hoá quy trình bằng UML và BPMN.
 - **Phân tích nghiệp vụ:** Elicitation · Competitor analysis · User Story · Use Case · SRS/BRD · Acceptance Criteria
 - **Mô hình hoá:** UML (Use Case, Activity, Sequence, State) · BPMN · ERD · Wireframe
 - **Công cụ:** Jira · Confluence · Figma · Draw.io · Postman · Microsoft Office
+- **AI / automation:** Claude Code · OpenCode · MCP · Skills · Figma Make
 - **Dữ liệu & Kỹ thuật:** SQL · PostgreSQL · REST API (đọc hiểu) · OpenAPI
 - **Phương pháp & Kỹ năng mềm:** Agile/Scrum · Quản lý backlog · Giao tiếp · Làm việc nhóm · Tư duy phản biện
 
