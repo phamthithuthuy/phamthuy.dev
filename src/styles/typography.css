@@ -3,7 +3,8 @@
 @layer base {
   /* ===== Override default Tailwind Typography styles ===== */
   .app-prose {
-    @apply prose;
+    /* max-w-none: Tailwind prose defaults to 65ch; fill parent app-layout width */
+    @apply prose max-w-none;
 
     h1,
     h2,
